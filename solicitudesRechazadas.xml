@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solicitudes>
+	<solicitud>
+		<Emisor>
+			<Nombre>Carlos</Nombre>
+		</Emisor>
+		<Receptor>
+			<Nombre>Juan</Nombre>
+			<Apellido>Pérez</Apellido>
+			<Cedula>123456789</Cedula>
+		</Receptor>
+	</solicitud>
+</solicitudes>

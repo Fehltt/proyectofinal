@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e0f7f7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.Controllers.LoginController">
+   <children>
+      <Button fx:id="buttonRegistrar" alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="359.0" mnemonicParsing="false" onAction="#click" prefHeight="40.0" prefWidth="218.0" style="-fx-background-color: #4ed1da;" text="Registrarse" textFill="#3f374c">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="buttonIngresar" alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="248.0" mnemonicParsing="false" onAction="#click" prefHeight="44.0" prefWidth="218.0" style="-fx-background-color: #4ed1da;" text="Ingresar" textFill="#3f374c">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label fx:id="labelTituloMarketplace" layoutX="172.0" layoutY="87.0" text="Chiringuito Marketplace" textFill="#3f374c">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Line endX="229.0" layoutX="427.0" layoutY="145.0" startX="-426.0" stroke="#a770b3" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="30.0" layoutY="260.0" startY="-260.0" stroke="#4ed1da" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="40.0" layoutY="260.0" startY="-260.0" stroke="#f08073" strokeWidth="2.0" />
+      <Line endX="229.0" layoutX="427.0" layoutY="155.0" startX="-426.0" stroke="#f08024" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="50.0" layoutY="260.0" startY="-260.0" stroke="#f0b14d" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="760.0" layoutY="260.0" startY="-260.0" stroke="#a770b3" strokeWidth="2.0" />
+      <Line endX="360.0" layoutX="440.0" layoutY="560.0" startX="-250.0" stroke="#f08073" strokeWidth="2.0" />
+      <Line endX="360.0" layoutX="440.0" layoutY="570.0" startX="-250.0" stroke="#f0b14d" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="770.0" layoutY="260.0" startY="100.0" stroke="#f08024" strokeWidth="2.0" />
+      <Line endY="340.0" layoutX="750.0" layoutY="260.0" startY="-150.0" stroke="#4ed1da" strokeWidth="2.0" />
+      <Circle fill="#b2ffff" layoutX="29.0" layoutY="14.0" opacity="0.64" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#b2ffff" layoutX="630.0" layoutY="586.0" opacity="0.64" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#f08073" layoutX="759.0" layoutY="586.0" opacity="0.64" radius="79.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#f08073" layoutX="-9.0" layoutY="521.0" opacity="0.64" radius="79.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#f08073" layoutX="730.0" layoutY="22.0" opacity="0.64" radius="87.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#a770b3" layoutX="181.0" layoutY="-10.0" opacity="0.64" radius="76.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#a770b3" layoutX="138.0" layoutY="571.0" opacity="0.64" radius="87.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#b2ffff" layoutX="105.0" layoutY="445.0" opacity="0.64" radius="76.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#a770b3" layoutX="680.0" layoutY="219.0" opacity="0.64" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#b2ffff" layoutX="730.0" layoutY="270.0" opacity="0.64" radius="45.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#a770b3" layoutX="90.0" layoutY="146.0" opacity="0.64" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

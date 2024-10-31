@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solicitudes>
+	<solicitud>
+		<Emisor>
+			<Nombre>Ana</Nombre>
+			<Apellido>García</Apellido>
+			<Cedula>987654321</Cedula>
+			<Direccion>Avenida Siempre Viva 742</Direccion>
+		</Emisor>
+		<Receptor>
+			<Nombre>Juan</Nombre>
+			<Apellido>Pérez</Apellido>
+			<Cedula>123456789</Cedula>
+			<Direccion>Calle Falsa 123</Direccion>
+		</Receptor>
+	</solicitud>
+</solicitudes>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solicitudes>
+	<solicitud>
+		 <Emisor>Ana</Emisor>
+		 <Receptor>Juan</Receptor> 
+	</solicitud>
+	<solicitud>
+		 <Emisor>Carlos</Emisor>
+		 <Receptor>Juan</Receptor> 
+	</solicitud>
+</solicitudes>

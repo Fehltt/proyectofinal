@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: ;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.Controllers.PanelDeControlVendedorController">
+   <children>
+      <Label fx:id="labelTituloPanelDeControl" layoutX="30.0" layoutY="30.0" text="Panel de Control de Vendedor">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageEstadisticas" fitHeight="350.0" fitWidth="400.0" layoutX="226.0" layoutY="131.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 50;">
+         <image>
+            <Image url="@../../../../../../../../AAAAAAAAAAAAU.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonAtras" layoutX="715.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Atrás">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="370.0" layoutY="490.0" text="Estadísticas" />
+   </children>
+</AnchorPane>

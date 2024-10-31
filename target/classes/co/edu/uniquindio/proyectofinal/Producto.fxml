@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.Controllers.ProductoController">
+   <children>
+      <Label fx:id="labelTituloProducto" layoutX="14.0" layoutY="14.0" text="Producto de Vendedor">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonAtras" layoutX="315.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Atrás" />
+      <Label fx:id="labelNombre" layoutX="177.0" layoutY="80.0" text="Nombre">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelCodigo" layoutX="181.0" layoutY="110.0" text="Código">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="102.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Documents/Cosas%20interesantes/Memes/Plantillas/gorro%20de%20navidad.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelCategoria" layoutX="169.0" layoutY="300.0" text="Categoría:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPrecio" layoutX="181.0" layoutY="330.0" text="Precio">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelFechaDePublicacion" layoutX="135.0" layoutY="360.0" text="Fecha de publicación">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelHoraDePublicacion" layoutX="140.0" layoutY="390.0" text="Hora de publicación">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelEstado" layoutX="179.0" layoutY="420.0" text="Estado">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelAutor" layoutX="183.0" layoutY="450.0" text="Autor">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDescripcion" layoutX="164.0" layoutY="480.0" text="Descripción">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelMeGusta" layoutX="171.0" layoutY="510.0" text="Me gusta">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
