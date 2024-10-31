@@ -171,7 +171,7 @@ public class Vendedor implements Serializable {
     }
 
     public static void GuardarSolicitudesAceptadasXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesAceptadas.xml";
+        String Filepath = "solicitudesAceptadas.xml";
     
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
     
@@ -201,11 +201,10 @@ public class Vendedor implements Serializable {
             
             xmlWriter.write("</solicitudes>\n");
         }
-
-        }
+   }
 
         public static void GuardarSolicitudesRechazadasXML() throws IOException {
-    String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesRechazadas.xml";
+    String Filepath = "solicitudesRechazadas.xml";
 
     try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))) {
 
@@ -238,12 +237,9 @@ public class Vendedor implements Serializable {
         throw new IOException("Error al escribir el archivo XML de solicitudes rechazadas.", e);
     }
 }
-
-
-
     
         public static void GuardarProductosXML () throws IOException{
-            String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Productos.xml";
+            String Filepath = "Productos.xml";
     
             try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
     
@@ -255,18 +251,13 @@ public class Vendedor implements Serializable {
                     xmlWriter.write("\t\t <Nombre>" + producto.getNombre() + "</Nombre>\n");
                     xmlWriter.write("\t\t <Codigo>" + producto.getCodigo() + "</Codigo> \n");
                     xmlWriter.write("\t</producto>\n");
-    
-    
-    
                 }
                 xmlWriter.write("</Productos>\n");
-                }
-    
+                }    
             }
 
-
             public static void GuardarProductosVendidosXML () throws IOException{
-                String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\ProductosVendidos.xml";
+                String Filepath = "ProductosVendidos.xml";
         
                 try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
         
@@ -404,7 +395,7 @@ public class Vendedor implements Serializable {
 
 
     public void guardarContactosEnTxt() throws IOException {
-        String filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\contactos.txt";
+        String filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\Archivos\\contactos.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
             for (Vendedor contacto : contactos) {
                 writer.write("Nombre: " + contacto.getNombre() + "\n");
