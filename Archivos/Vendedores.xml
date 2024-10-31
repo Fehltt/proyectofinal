@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Vendedores>
+	<vendedor>
+		 <Nombre>Juan</Nombre>
+		 <Apellido>Pérez</Apellido> 
+		 <Cedula>123456789</Cedula> 
+		 <Direccion>Calle Falsa 123</Direccion> 
+	</vendedor>
+	<vendedor>
+		 <Nombre>Ana</Nombre>
+		 <Apellido>García</Apellido> 
+		 <Cedula>987654321</Cedula> 
+		 <Direccion>Avenida Siempre Viva 742</Direccion> 
+	</vendedor>
+	<vendedor>
+		 <Nombre>Carlos</Nombre>
+		 <Apellido>López</Apellido> 
+		 <Cedula>456789123</Cedula> 
+		 <Direccion>Calle 8 #23-45</Direccion> 
+	</vendedor>
+</Vendedores>

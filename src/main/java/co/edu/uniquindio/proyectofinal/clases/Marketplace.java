@@ -1,11 +1,17 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -83,6 +89,29 @@ public class Marketplace {
             }
 
         }
+
+    public static void crearRespaldoVendedoresXML(String originalFilePath) throws IOException {
+        // Crear carpeta "respaldo" si no existe
+        File respaldoDir = new File("C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\respaldo");
+        if (!respaldoDir.exists()) {
+            respaldoDir.mkdirs(); // Crea el directorio
+        }
+
+        // Obtener la fecha actual
+        String dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String backupFilePath = respaldoDir.getPath() + "\\Vendedores_backup_" + dateFormat + ".xml";
+
+        // Copiar el archivo original a la ubicación de respaldo
+        try (InputStream in = new FileInputStream(originalFilePath);
+             OutputStream out = new FileOutputStream(backupFilePath)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+            }
+        }
+        
+    }
 
     
 

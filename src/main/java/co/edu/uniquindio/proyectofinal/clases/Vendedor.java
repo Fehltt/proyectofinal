@@ -30,7 +30,7 @@ public class Vendedor implements Serializable {
 
     //Constuctor
 
-    public Vendedor(String nombre, String apellido, String cedula, String direccion, Muro muro) {
+    public Vendedor(String nombre, String apellido, String cedula, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;

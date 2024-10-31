@@ -1,0 +1,7 @@
+Nombre del productoProducto A
+Codigo del productonull
+Descripcion del productoDescripción del producto A
+Precio del producto100.0
+Autor de la publicación del productoco.edu.uniquindio.proyectofinal.clases.Vendedor@75a1cd57
+Fecha de publicación del producto2024-10-30
+Hora de publicación del producto23:54:58.662333
