@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -36,21 +38,29 @@ public class Marketplace {
 
     //Métodos
 
-    public void agregarVendedor(Vendedor vendedor){
+    public void agregarVendedor(Vendedor vendedor) throws IOException{
         Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.add(vendedor);
+        Marketplace.guardarDatos();
+        Marketplace.GuardarVendedoresXML();
     }
 
-    public void eliminarVendedor(Vendedor vendedor){
+    public void eliminarVendedor(Vendedor vendedor) throws IOException{
         Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.remove(vendedor);
+        Marketplace.guardarDatos();
+        Marketplace.GuardarVendedoresXML();
     }
     
     //Persistencia
 
     public static void guardarDatos() throws IOException {
-        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("vendedores.dat"));) {
+        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\\\Users\\\\Epubl\\\\Downloads\\\\Proyecto Final Programación III\\\\proyectofinal\\\\Archivos\\\\vendedores.dat"));) {
             oosVendedores.writeObject(vendedores);
         }
     }
+
+    
+
+
 }

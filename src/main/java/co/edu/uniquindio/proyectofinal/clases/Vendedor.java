@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
+
 import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
 import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
 
@@ -103,6 +104,10 @@ public class Vendedor implements Serializable {
             this.guardarSolicitudesAceptadas();
             this.GuardarSolicitudesPendientesXML();
             this.GuardarSolicitudesAceptadasXML();
+            this.guardarContactosEnTxt();
+            this.guardarSolicitudesAceptadasTXT();
+            this.guardarSolicitudesPendientesTXT();
+            solicitud.getEmisor().guardarContactosEnTxt();
             
         }
     }
@@ -162,7 +167,7 @@ public class Vendedor implements Serializable {
     }
 
     public static void GuardarSolicitudesAceptadasXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesAceptadas.xml";
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesAceptadas.xml";
     
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
     
@@ -196,7 +201,7 @@ public class Vendedor implements Serializable {
         }
 
         public static void GuardarSolicitudesRechazadasXML() throws IOException {
-    String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesRechazadas.xml";
+    String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesRechazadas.xml";
 
     try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))) {
 
@@ -234,7 +239,7 @@ public class Vendedor implements Serializable {
 
     
         public static void GuardarProductosXML () throws IOException{
-            String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Productos.xml";
+            String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\Productos.xml";
     
             try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
     
@@ -257,7 +262,7 @@ public class Vendedor implements Serializable {
 
 
             public static void GuardarProductosVendidosXML () throws IOException{
-                String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\ProductosVendidos.xml";
+                String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\ProductosVendidos.xml";
         
                 try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
         
@@ -283,7 +288,7 @@ public class Vendedor implements Serializable {
 
 
     public static void GuardarSolicitudesPendientesXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesPendientes.xml";
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesPendientes.xml";
 
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
 
@@ -323,9 +328,12 @@ public class Vendedor implements Serializable {
         destino.recibirSolicitud(solicitud);
     }
 
+    @SuppressWarnings("static-access")
     public void recibirSolicitud (Solicitud solicitud) throws IOException{
         solicitudesPendientes.add(solicitud);
-        Vendedor.guardarSolicitudesPendientes();
+        this.guardarSolicitudesPendientes();
+        this.guardarSolicitudesPendientesTXT();
+        this.GuardarSolicitudesPendientesXML();
     }
 
 
@@ -342,6 +350,8 @@ public class Vendedor implements Serializable {
             this.GuardarSolicitudesPendientesXML();
             this.GuardarSolicitudesRechazadasXML();
             solicitud.getEmisor().guardarSolicitudesRechazadas();
+            this.guardarSolicitudesRechazadasTXT();
+            solicitud.getEmisor().guardarSolicitudesRechazadasTXT();
 
             
             
@@ -359,6 +369,7 @@ public class Vendedor implements Serializable {
 
         if(!vendedorOriginal.equals(this)){
             if (producto.getEstado() == EstadoProducto.PUBLICADO){
+                Utilidades.getInstance().escribirLog(Level.INFO, "Función comprarProducto en Vendedor: Funcionamiento adecuado");
                 producto.setEstadoProducto(EstadoProducto.VENDIDO);
                 vendedorOriginal.eliminarProducto(producto);
                 vendedorOriginal.agregarProductoVendido(producto);
@@ -366,6 +377,7 @@ public class Vendedor implements Serializable {
                 vendedorOriginal.guardarProductosVendidos();
                 vendedorOriginal.GuardarProductosVendidosXML();
                 vendedorOriginal.GuardarProductosXML();
+                
             }
             else{
                 throw new ProductoCanceladoOVendidoException("El producto ya ha sido vendido o ya no está disponible");
@@ -378,6 +390,68 @@ public class Vendedor implements Serializable {
 
     public void eliminarProducto (Producto producto){
         productos.remove(producto);
+    }
+
+
+    public void guardarContactosEnTxt() throws IOException {
+        String filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\contactos.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
+            for (Vendedor contacto : contactos) {
+                writer.write("Nombre: " + contacto.getNombre() + "\n");
+                writer.write("Apellido: " + contacto.getApellido() + "\n");
+                writer.write("Cedula: " + contacto.getCedula() + "\n");
+                writer.write("Direccion: " + contacto.getDireccion() + "\n");
+                writer.write("------------------------------\n");
+            }
+            System.out.println("Contactos guardados en contactos.txt exitosamente.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar contactos en archivo .txt: " + e.getMessage());
+        }
+    }
+
+    public void guardarSolicitudesPendientesTXT() throws IOException{
+        String filepath="C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\SolicitudesPendientes.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))){
+            for (Solicitud solicitud : solicitudesPendientes){
+                writer.write("Nombre del emisor" + solicitud.getEmisor().getNombre() + "\n" );
+                writer.write("Apellido del emisor" + solicitud.getEmisor().getApellido() + "\n" );
+                writer.write("Cedula del emisor" + solicitud.getEmisor().getCedula() + "\n" );
+
+                writer.write("Nombre del receptor" + solicitud.getReceptor().getNombre() + "\n" );
+                writer.write("Apellido del receptor" + solicitud.getReceptor().getApellido() + "\n" );
+                writer.write("Cedula del receptor" + solicitud.getReceptor().getCedula() + "\n" );
+            }
+        }
+    }
+
+    public void guardarSolicitudesAceptadasTXT() throws IOException{
+        String filepath="C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\SolicitudesAceptadas.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))){
+            for (Solicitud solicitud : solicitudesAceptadas){
+                writer.write("Nombre del emisor" + solicitud.getEmisor().getNombre() + "\n" );
+                writer.write("Apellido del emisor" + solicitud.getEmisor().getApellido() + "\n" );
+                writer.write("Cedula del emisor" + solicitud.getEmisor().getCedula() + "\n" );
+
+                writer.write("Nombre del receptor" + solicitud.getReceptor().getNombre() + "\n" );
+                writer.write("Apellido del receptor" + solicitud.getReceptor().getApellido() + "\n" );
+                writer.write("Cedula del receptor" + solicitud.getReceptor().getCedula() + "\n" );
+            }
+        }
+    }
+
+    public void guardarSolicitudesRechazadasTXT() throws IOException{
+        String filepath="C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\SolicitudesRechazadas.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))){
+            for (Solicitud solicitud : solicitudesRechazadas){
+                writer.write("Nombre del emisor" + solicitud.getEmisor().getNombre() + "\n" );
+                writer.write("Apellido del emisor" + solicitud.getEmisor().getApellido() + "\n" );
+                writer.write("Cedula del emisor" + solicitud.getEmisor().getCedula() + "\n" );
+
+                writer.write("Nombre del receptor" + solicitud.getReceptor().getNombre() + "\n" );
+                writer.write("Apellido del receptor" + solicitud.getReceptor().getApellido() + "\n" );
+                writer.write("Cedula del receptor" + solicitud.getReceptor().getCedula() + "\n" );
+            }
+        }
     }
 
 

@@ -1,0 +1,10 @@
+Nombre: Ana
+Apellido: García
+Cedula: 987654321
+Direccion: Avenida Siempre Viva 742
+------------------------------
+Nombre: Juan
+Apellido: Pérez
+Cedula: 123456789
+Direccion: Calle Falsa 123
+------------------------------
