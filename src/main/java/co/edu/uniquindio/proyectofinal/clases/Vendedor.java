@@ -394,8 +394,12 @@ public class Vendedor implements Serializable {
         }
     }
 
-    public void eliminarProducto (Producto producto){
+    @SuppressWarnings("static-access")
+    public void eliminarProducto (Producto producto) throws IOException{
         productos.remove(producto);
+        this.guardarProductosTXT();
+        this.guardarProductos();
+        this.GuardarProductosXML();
     }
 
 

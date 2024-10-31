@@ -60,7 +60,29 @@ public class Marketplace {
         }
     }
 
+    public static void GuardarVendedoresXML () throws IOException{
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\Vendedores.xml";
 
+        try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
+
+            xmlWriter.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+            xmlWriter.write("<Vendedores>\n");
+
+            for(Vendedor vendedor: vendedores){
+                xmlWriter.write("\t<vendedor>\n");
+                xmlWriter.write("\t\t <Nombre>" + vendedor.getNombre() + "</Nombre>\n");
+                xmlWriter.write("\t\t <Apellido>" + vendedor.getApellido() + "</Apellido> \n");
+                xmlWriter.write("\t\t <Cedula>" + vendedor.getCedula() + "</Cedula> \n");
+                xmlWriter.write("\t\t <Direccion>" + vendedor.getDireccion() + "</Direccion> \n");
+                xmlWriter.write("\t</vendedor>\n");
+
+
+
+            }
+            xmlWriter.write("</Vendedores>\n");
+            }
+
+        }
 
 
 }
