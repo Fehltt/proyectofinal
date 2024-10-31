@@ -85,7 +85,14 @@ public class Marketplace {
         }
 
     
-
+    public Vendedor buscarVendedorPorNombre(String nombre) throws UsuarioNoEncontradoException {
+        for (Vendedor vendedor : vendedores) {
+            if (vendedor.getNombre().equalsIgnoreCase(nombre)) {
+                return vendedor;
+            }
+        }
+        throw new UsuarioNoEncontradoException("Vendedor con el nombre '" + nombre + "' no encontrado en el Marketplace.");
+    }
 
 
 }
