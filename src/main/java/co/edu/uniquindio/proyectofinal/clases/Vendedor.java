@@ -395,7 +395,7 @@ public class Vendedor implements Serializable {
 
 
     public void guardarContactosEnTxt() throws IOException {
-        String filepath = "C:\Users\Epubl\Downloads\Proyecto Final Programación III\proyectofinal\Archivos\contactos.txt";
+        String filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\contactos.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
             for (Vendedor contacto : contactos) {
                 writer.write("Nombre: " + contacto.getNombre() + "\n");
