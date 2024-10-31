@@ -112,9 +112,13 @@ public class Vendedor implements Serializable {
         }
     }
 
-    public void agregarProducto(Producto producto){
+    @SuppressWarnings("static-access")
+    public void agregarProducto(Producto producto) throws IOException{
         Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarProducto en Vendedor: Funcionamiento adecuado");
         productos.add(producto);
+        this.guardarProductosTXT();
+        this.guardarProductos();
+        this.GuardarProductosXML();
     }
 
     //Persistencia
@@ -167,7 +171,7 @@ public class Vendedor implements Serializable {
     }
 
     public static void GuardarSolicitudesAceptadasXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesAceptadas.xml";
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesAceptadas.xml";
     
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
     
@@ -201,7 +205,7 @@ public class Vendedor implements Serializable {
         }
 
         public static void GuardarSolicitudesRechazadasXML() throws IOException {
-    String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesRechazadas.xml";
+    String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesRechazadas.xml";
 
     try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))) {
 
@@ -239,7 +243,7 @@ public class Vendedor implements Serializable {
 
     
         public static void GuardarProductosXML () throws IOException{
-            String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\Productos.xml";
+            String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Productos.xml";
     
             try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
     
@@ -262,7 +266,7 @@ public class Vendedor implements Serializable {
 
 
             public static void GuardarProductosVendidosXML () throws IOException{
-                String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\ProductosVendidos.xml";
+                String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\ProductosVendidos.xml";
         
                 try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
         
@@ -288,7 +292,7 @@ public class Vendedor implements Serializable {
 
 
     public static void GuardarSolicitudesPendientesXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\solicitudesPendientes.xml";
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesPendientes.xml";
 
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
 
@@ -377,6 +381,8 @@ public class Vendedor implements Serializable {
                 vendedorOriginal.guardarProductosVendidos();
                 vendedorOriginal.GuardarProductosVendidosXML();
                 vendedorOriginal.GuardarProductosXML();
+                vendedorOriginal.guardarProductosTXT();
+                vendedorOriginal.guardarProductosVendidosTXT();
                 
             }
             else{
@@ -452,6 +458,39 @@ public class Vendedor implements Serializable {
                 writer.write("Cedula del receptor" + solicitud.getReceptor().getCedula() + "\n" );
             }
         }
+    }
+
+
+    public void guardarProductosTXT() throws IOException{
+        String filepath="C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\Productos.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))){
+            for (Producto producto : productos){
+                writer.write("Nombre del producto" + producto.getNombre() + "\n" );
+                writer.write("Codigo del producto" + producto.getCodigo() + "\n" );
+                writer.write("Descripcion del producto" + producto.getDescripcion() + "\n" );
+
+                writer.write("Precio del producto" + producto.getPrecio() + "\n" );
+                writer.write("Autor de la publicación del producto" + producto.getAutor() + "\n" );
+                writer.write("Fecha de publicación del producto" + producto.getFechaDePublicacion() + "\n" );
+                writer.write("Hora de publicación del producto" + producto.getHoraDePublicacion() + "\n" );
+            }
+        }
+        }
+
+        public void guardarProductosVendidosTXT() throws IOException{
+            String filepath="C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\Productos.txt";
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))){
+                for (Producto producto : productosVendidos){
+                    writer.write("Nombre del producto" + producto.getNombre() + "\n" );
+                    writer.write("Codigo del producto" + producto.getCodigo() + "\n" );
+                    writer.write("Descripcion del producto" + producto.getDescripcion() + "\n" );
+    
+                    writer.write("Precio del producto" + producto.getPrecio() + "\n" );
+                    writer.write("Autor de la publicación del producto" + producto.getAutor() + "\n" );
+                    writer.write("Fecha de publicación del producto" + producto.getFechaDePublicacion() + "\n" );
+                    writer.write("Hora de publicación del producto" + producto.getHoraDePublicacion() + "\n" );
+                }
+            }
     }
 
 
