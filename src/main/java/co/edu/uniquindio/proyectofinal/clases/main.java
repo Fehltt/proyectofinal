@@ -5,16 +5,24 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
-import co.edu.uniquindio.proyectofinal.excepciones.NegativoException;
 import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
 
-public class main {
+public class Main {
+    
     public static void main(String[] args) {
         try {
+            // Crear una instancia de Marketplace
+            Marketplace marketplace = new Marketplace("Mi Marketplace");
+
             // Crear tres vendedores
             Vendedor vendedor1 = new Vendedor("Juan", "Pérez", "123456789", "Calle Falsa 123", null);
             Vendedor vendedor2 = new Vendedor("Ana", "García", "987654321", "Avenida Siempre Viva 742", null);
             Vendedor vendedor3 = new Vendedor("Carlos", "López", "456789123", "Calle 8 #23-45", null);
+
+            // Agregar vendedores al Marketplace
+            marketplace.agregarVendedor(vendedor1);
+            marketplace.agregarVendedor(vendedor2);
+            marketplace.agregarVendedor(vendedor3);
 
             // Vendedor2 envía solicitud de amistad a Vendedor1
             vendedor2.enviarSolicitud(vendedor1);
@@ -44,6 +52,9 @@ public class main {
             // Vendedor2 intenta comprar el producto de Vendedor1
             vendedor2.comprarProducto(producto);
             System.out.println("Producto comprado exitosamente por Vendedor2.");
+
+            // Aquí podrías agregar la funcionalidad para eliminar un vendedor si lo deseas
+            // marketplace.eliminarVendedor(vendedor3); // Por ejemplo
 
         } catch (ProductoCanceladoOVendidoException | AutoCompraException | IOException e) {
             System.out.println("Error: " + e.getMessage());
