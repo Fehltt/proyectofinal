@@ -56,6 +56,13 @@ public class main {
             // Aquí podrías agregar la funcionalidad para eliminar un vendedor si lo deseas
             // marketplace.eliminarVendedor(vendedor3); // Por ejemplo
 
+            try {
+                Vendedor vendedorBuscado = marketplace.buscarVendedorPorNombre("Pedro");
+                System.out.println("Vendedor encontrado: " + vendedorBuscado.getNombre());
+            } catch (UsuarioNoEncontradoException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+            
         } catch (ProductoCanceladoOVendidoException | AutoCompraException | IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
