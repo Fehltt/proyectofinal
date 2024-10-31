@@ -164,7 +164,7 @@ public class Vendedor implements Serializable {
     public static void GuardarSolicitudesAceptadasXML () throws IOException{
         String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesAceptadas.xml";
     
-        try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
+        try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
     
             xmlWriter.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             xmlWriter.write("<solicitudes>\n");
@@ -209,14 +209,17 @@ public class Vendedor implements Serializable {
             xmlWriter.write("\t\t<Emisor>\n");
             xmlWriter.write("\t\t\t<Nombre>" + solicitud.getEmisor().getNombre() + "</Nombre>\n");
             xmlWriter.write("\t\t\t<Apellido>" + solicitud.getEmisor().getApellido() + "</Apellido>\n");
+            xmlWriter.write("\t\t\t<Cedula>" + solicitud.getEmisor().getCedula() + "</Cedula>\n");
+            xmlWriter.write("\t\t\t<Direccion>" + solicitud.getEmisor().getDireccion() + "</Direccion>\n");
             xmlWriter.write("\t\t</Emisor>\n");
 
             xmlWriter.write("\t\t<Receptor>\n");
             xmlWriter.write("\t\t\t<Nombre>" + solicitud.getReceptor().getNombre() + "</Nombre>\n");
             xmlWriter.write("\t\t\t<Apellido>" + solicitud.getReceptor().getApellido() + "</Apellido>\n");
             xmlWriter.write("\t\t\t<Cedula>" + solicitud.getReceptor().getCedula() + "</Cedula>\n");
+            xmlWriter.write("\t\t\t<Direccion>" + solicitud.getReceptor().getDireccion() + "</Direccion>\n");
             xmlWriter.write("\t\t</Receptor>\n");
-
+            
             xmlWriter.write("\t</solicitud>\n");
         }
 
@@ -282,17 +285,29 @@ public class Vendedor implements Serializable {
     public static void GuardarSolicitudesPendientesXML () throws IOException{
         String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesPendientes.xml";
 
-        try(BufferedWriter xmlWriter = new BufferedWriter (new FileWriter(Filepath))){
+        try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
 
             xmlWriter.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             xmlWriter.write("<solicitudes>\n");
 
             for(Solicitud solicitud: solicitudesPendientes){
                 xmlWriter.write("\t<solicitud>\n");
-                xmlWriter.write("\t\t <Emisor>" + solicitud.getEmisor().getNombre() + "</Emisor>\n");
-                xmlWriter.write("\t\t <Receptor>" + solicitud.getReceptor().getNombre() + "</Receptor> \n");
-                xmlWriter.write("\t</solicitud>\n");
 
+            xmlWriter.write("\t\t<Emisor>\n");
+            xmlWriter.write("\t\t\t<Nombre>" + solicitud.getEmisor().getNombre() + "</Nombre>\n");
+            xmlWriter.write("\t\t\t<Apellido>" + solicitud.getEmisor().getApellido() + "</Apellido>\n");
+            xmlWriter.write("\t\t\t<Cedula>" + solicitud.getEmisor().getCedula() + "</Cedula>\n");
+            xmlWriter.write("\t\t\t<Direccion>" + solicitud.getEmisor().getDireccion() + "</Direccion>\n");
+            xmlWriter.write("\t\t</Emisor>\n");
+
+            xmlWriter.write("\t\t<Receptor>\n");
+            xmlWriter.write("\t\t\t<Nombre>" + solicitud.getReceptor().getNombre() + "</Nombre>\n");
+            xmlWriter.write("\t\t\t<Apellido>" + solicitud.getReceptor().getApellido() + "</Apellido>\n");
+            xmlWriter.write("\t\t\t<Cedula>" + solicitud.getReceptor().getCedula() + "</Cedula>\n");
+            xmlWriter.write("\t\t\t<Direccion>" + solicitud.getReceptor().getDireccion() + "</Direccion>\n");
+            xmlWriter.write("\t\t</Receptor>\n");
+            
+            xmlWriter.write("\t</solicitud>\n");
 
 
             }

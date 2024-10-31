@@ -3,13 +3,13 @@
 	<solicitud>
 		<Emisor>
 			<Nombre>Ana</Nombre>
-			<Apellido>García</Apellido>
+			<Apellido>GarcÃ­a</Apellido>
 			<Cedula>987654321</Cedula>
 			<Direccion>Avenida Siempre Viva 742</Direccion>
 		</Emisor>
 		<Receptor>
 			<Nombre>Juan</Nombre>
-			<Apellido>Pérez</Apellido>
+			<Apellido>PÃ©rez</Apellido>
 			<Cedula>123456789</Cedula>
 			<Direccion>Calle Falsa 123</Direccion>
 		</Receptor>
