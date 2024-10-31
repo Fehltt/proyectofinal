@@ -5,5 +5,4 @@ module co.edu.uniquindio.proyectofinal {
     requires javafx.graphics;
     
     opens co.edu.uniquindio.proyectofinal.controllers to javafx.fxml;
-    exports co.edu.uniquindio.proyectofinal;
 }

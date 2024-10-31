@@ -7,7 +7,7 @@ import java.time.LocalTime;
 import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
 import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
 
-public class Main {
+public class main {
     
     public static void main(String[] args) {
         try {
