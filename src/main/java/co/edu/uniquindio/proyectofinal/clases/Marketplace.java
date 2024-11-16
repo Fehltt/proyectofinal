@@ -32,7 +32,7 @@ public class Marketplace {
         this.nombre = nombre;
     }
 
-    public List<Vendedor> getVendedores() {
+    public static List<Vendedor> getVendedores() {
         return vendedores;
     }
 
@@ -42,14 +42,14 @@ public class Marketplace {
         Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.add(vendedor);
         Marketplace.guardarDatos();
-        Marketplace.GuardarVendedoresXML();
+
     }
 
     public void eliminarVendedor(Vendedor vendedor) throws IOException{
         Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.remove(vendedor);
         Marketplace.guardarDatos();
-        Marketplace.GuardarVendedoresXML();
+
     }
     
     //Persistencia

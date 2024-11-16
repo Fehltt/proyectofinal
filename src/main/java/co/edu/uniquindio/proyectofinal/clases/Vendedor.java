@@ -27,6 +27,7 @@ public class Vendedor implements Serializable {
    private static List<Solicitud> solicitudesRechazadas = new ArrayList<>();
    private static List <Producto> productosVendidos = new ArrayList<>();
    private static List <Solicitud> solicitudesAceptadas = new ArrayList<>();
+   private ManejadorCliente manejadorCliente;
 
     //Constuctor
 
@@ -86,6 +87,10 @@ public class Vendedor implements Serializable {
 
     public List<Producto> getProductos() {
         return productos;
+    }
+
+    public ManejadorCliente getManejadorCliente() {
+        return manejadorCliente;
     }
 
     //Métodos
