@@ -1,7 +1,7 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
 import java.io.IOException;
-import java.util.List;
+
 
 public class PersistenciaPruebas {
     public static void main(String[] args) {
@@ -22,16 +22,7 @@ public class PersistenciaPruebas {
             marketplace.agregarVendedor(vendedor1);
             marketplace.agregarVendedor(vendedor2);
 
-            // Persistencia
-            Persistencia.guardarVendedoresBinario(marketplace.getVendedores());
-            List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresBinario();
-            
-            // Mostrar vendedores cargados
-            for (Vendedor v : vendedoresCargados) {
-                System.out.println(v.getNombre() + " " + v.getApellido());
-            }
-
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

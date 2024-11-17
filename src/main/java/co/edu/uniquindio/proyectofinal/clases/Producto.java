@@ -12,10 +12,6 @@ public class Producto implements Serializable {
     private String nombre;
     private double precio;
     private String descripcion;
-    public List<Vendedor> getLikes() {
-        return likes;
-    }
-
     private String codigo;
     private LocalTime horaDePublicacion;
     private LocalDate fechaDePublicacion;
@@ -31,15 +27,6 @@ public class Producto implements Serializable {
     }
 
     public void verLista(){}
-
-    public List<Comentario> obtenerComentarios(Vendedor usuario){
-        if(autor.getContactos().contains(usuario)){
-            return comentarios;
-        } else{
-            System.out.println("No está en la lista de contactos");
-            return null;
-        }
-    }
 
     public String getNombre() {
         return nombre;
@@ -81,16 +68,18 @@ public class Producto implements Serializable {
         return precio;
     }
 
-    public void setPrecio(double precio) throws NegativoException { 
+    public List<Vendedor> getLikes() {
+        return likes;
+    }
 
+    public void setPrecio(double precio) throws NegativoException { 
         if (precio < 0){
             throw new NegativoException("El precio no puede ser negativo");
         }
         else{
             this.precio = precio;
         }
-
-        }
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -116,20 +105,24 @@ public class Producto implements Serializable {
         comentarios.remove(comentario);
     }
 
+    public EstadoProducto getEstadoProducto() {
+        return estadoProducto;
+    }
+
     public void setEstadoProducto (EstadoProducto estadoProducto){
         this.estadoProducto = estadoProducto;
-
-
     }
 
     public Vendedor getAutor (){
         return autor;
     }
 
-    public EstadoProducto getEstado() {
-        // TODO Auto-generated method stub
-        return estadoProducto;
+    public List<Comentario> obtenerComentarios(Vendedor usuario){
+        if(autor.getContactos().contains(usuario)){
+            return comentarios;
+        } else{
+            System.out.println("No está en la lista de contactos");
+            return null;
+        }
     }
 }
-
-

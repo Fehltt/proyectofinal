@@ -20,7 +20,7 @@ public class ServidorChat implements Runnable {
     private ExecutorService poolHilos;
     private boolean enFuncion;
     private Map <Socket, Vendedor> mapeoSocketsAVendedores;
-    private int cantidadMensajes;
+    private int cantidadMensajes = 0;
 
     public ServidorChat(){
         clientesConectados = new ArrayList<>() ;

@@ -1,18 +1,12 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 public class Marketplace {
 
-    //Atributos
     private String nombre;
-
-    //Listas
     private static List<Vendedor> vendedores = new ArrayList<>();
     
     //Constructor
@@ -37,28 +31,13 @@ public class Marketplace {
     //Métodos
 
     public void agregarVendedor(Vendedor vendedor) throws IOException{
-        Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.add(vendedor);
-        Marketplace.guardarDatos();
-
+        Persistencia.guardarObjeto(vendedores, Persistencia.RUTA_VENDEDORES_DAT);
     }
 
     public void eliminarVendedor(Vendedor vendedor) throws IOException{
-        Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarVendedor en Marketplace: Funcionamiento adecuado");
         vendedores.remove(vendedor);
-        Marketplace.guardarDatos();
-
+        Persistencia.guardarObjeto(vendedores, Persistencia.RUTA_VENDEDORES_DAT);
     }
-    
-    //Persistencia
-
-    public static void guardarDatos() throws IOException {
-        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\vendedores.dat"));) {
-            oosVendedores.writeObject(vendedores);
-        }
-    }
-
-
-
 
 }

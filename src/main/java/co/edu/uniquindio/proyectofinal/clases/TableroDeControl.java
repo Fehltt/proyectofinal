@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 
 public class TableroDeControl {
 
@@ -27,10 +28,12 @@ public class TableroDeControl {
                 System.out.println("Producto " + producto.getNombre() + " Likes- " + producto.getLikes().size());
             }
         }
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función generarEstadisticas en TableroDeControl: Funcionamiento adecuado");
     }
     private String obtenerFechaActual(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
         Date fecha = new Date();
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función obtenerFechaActual en TableroDeControl: Funcionamiento adecuado");
         return sdf.format(fecha);
     }
 
@@ -51,14 +54,13 @@ public class TableroDeControl {
                 for (Producto producto : vendedor.obtenerTop10ProductosConLikes()){
                     writer.write("Producto: " + producto.getNombre() + "Likes: " + producto.getLikes().size() + "\n" );
                 }writer.write ("------------------------------------------------------------\n");
-            }writer.write("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+            }
             writer.write("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
-            
+            writer.write("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+            Utilidades.getInstance().escribirLog(Level.INFO, "Función exportarEstadisticas en TableroDeControl: Funcionamiento adecuado");
         } catch (IOException e){
-            System.out.println("Error");
+            Utilidades.getInstance().escribirLog(Level.WARNING, "Error en función exportarEstadisticas en TableroDeControl " + e);
         }
     }
 
-    
-    
 }
