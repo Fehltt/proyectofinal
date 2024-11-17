@@ -32,6 +32,15 @@ public class Producto implements Serializable {
 
     public void verLista(){}
 
+    public List<Comentario> obtenerComentarios(Vendedor usuario){
+        if(autor.getContactos().contains(usuario)){
+            return comentarios;
+        } else{
+            System.out.println("No está en la lista de contactos");
+            return null;
+        }
+    }
+
     public String getNombre() {
         return nombre;
     }
