@@ -114,10 +114,5 @@ public class ManejadorCliente implements Runnable {
 
         }
     }
-
-    
-    
     
 }
-
-

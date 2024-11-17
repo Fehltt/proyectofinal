@@ -5,8 +5,7 @@ import java.io.Serializable;
 public class Mensaje implements Serializable {
     
     private String remitente;
-    
-     private String destinatario;
+    private String destinatario;
     private String contenido;
 
     // Constructor

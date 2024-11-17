@@ -166,7 +166,8 @@ public class Vendedor implements Serializable {
                 if(!contactos.contains(contactoDeContacto) && !sugeridos.contains(contactoDeContacto)){
                     sugeridos.add(contactoDeContacto);
                 }
-            } 
+            }
+            Utilidades.getInstance().escribirLog(Level.INFO,"Función sugerirContactos en Vendedor: Funcionamiento adecuado");
         } return sugeridos;
     }
 
@@ -332,7 +333,7 @@ public class Vendedor implements Serializable {
 
 
     public static void GuardarSolicitudesPendientesXML () throws IOException{
-        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\solicitudesPendientes.xml";
+        String Filepath = "C:\\Users\\usuario\\Downloads\\proyectofinal-1\\solicitudesPendientes.xml";
 
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
 
