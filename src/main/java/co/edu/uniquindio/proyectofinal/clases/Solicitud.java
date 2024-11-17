@@ -14,9 +14,5 @@ public class Solicitud implements Serializable {
     }
     public Vendedor getReceptor() {
         return receptor;
-
-
-    
-
-}
+    }
 }

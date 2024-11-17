@@ -2,11 +2,7 @@ package co.edu.uniquindio.proyectofinal.clases;
 
 import java.io.IOException;
 
-
-import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
-import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
-
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         try {
@@ -23,9 +19,10 @@ public class main {
             // Simulamos la aceptación de la solicitud por parte de vendedor2
             vendedor2.agregarContacto(vendedor1, solicitud1);
 
+            Mensaje m1 = new Mensaje("Vendedor", "Hola");
             // Ahora los vendedores pueden enviar mensajes entre sí
-            vendedor1.getManejadorCliente().enviarMensaje("¡Hola María, tengo un interés en tus productos!");
-            vendedor2.getManejadorCliente().enviarMensaje("¡Hola Juan, gracias por contactarme!");
+            vendedor1.getManejadorCliente().enviarMensaje(m1);
+            vendedor2.getManejadorCliente().enviarMensaje(m1);
 
             // Mostrar los mensajes enviados entre los vendedores
 
@@ -33,6 +30,6 @@ public class main {
         } catch (IOException e) {
             System.err.println("Error al manejar la solicitud o los mensajes: " + e.getMessage());
         }
-}
+    }
 }
 

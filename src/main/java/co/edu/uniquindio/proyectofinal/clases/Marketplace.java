@@ -1,8 +1,6 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
-import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -55,7 +53,7 @@ public class Marketplace {
     //Persistencia
 
     public static void guardarDatos() throws IOException {
-        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\\\Users\\\\Epubl\\\\Downloads\\\\Proyecto Final Programación III\\\\proyectofinal\\\\Archivos\\\\vendedores.dat"));) {
+        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\vendedores.dat"));) {
             oosVendedores.writeObject(vendedores);
         }
     }
