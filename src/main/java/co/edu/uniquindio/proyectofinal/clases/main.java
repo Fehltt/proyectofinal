@@ -1,42 +1,13 @@
 package co.edu.uniquindio.proyectofinal.clases;
-
 import java.io.IOException;
-
-
-import java.io.*;
-import java.net.Socket;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
-
-public class mainin {
+public class main {
 
     public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
-        // Iniciar el servidor de reporte en un hilo separado
-        new Thread(() -> {
-            try {
-                ServidorReporte.main(null);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
 
         // Iniciar el servidor de chat en un hilo separado
         new Thread(() -> {
@@ -94,12 +65,7 @@ public class mainin {
             }
         }
 
-        // Crear e imprimir el reporte de estadísticas
-        TableroDeControl tablero = new TableroDeControl();
-        tablero.generarEstadisticas();
 
-        // Exportar estadísticas a archivo
-        tablero.exportarEstadisticas("reporte_estadisticas.txt", "admin");
 
         // Persistencia de datos: guardar productos
         vendedor1.guardarProductos();
@@ -109,6 +75,23 @@ public class mainin {
         new Thread(() -> {
             try {
                 ClienteReporte.main(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        // Ejecutar los clientes de chat para diferentes vendedores
+        new Thread(() -> {
+            try {
+                ClienteChat.iniciarChat(vendedor1, 12346);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            try {
+                ClienteChat.iniciarChat(vendedor2, 12346);
             } catch (IOException e) {
                 e.printStackTrace();
             }
