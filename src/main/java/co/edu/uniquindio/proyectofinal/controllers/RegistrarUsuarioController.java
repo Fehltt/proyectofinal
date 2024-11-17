@@ -1,23 +1,28 @@
 package co.edu.uniquindio.proyectofinal.controllers;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
+import co.edu.uniquindio.proyectofinal.clases.Persistencia;
+import co.edu.uniquindio.proyectofinal.clases.Vendedor;
+
 public class RegistrarUsuarioController {
 
     @FXML
     private Button bAtras;
+
+    @FXML
+    private Button bGuardar;
 
     @FXML
     private Label lApellido;
@@ -56,13 +61,14 @@ public class RegistrarUsuarioController {
     void click(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        if (button.getId().equals("bAtras")) {
+        if (button == bAtras) {
             irAtras();
+        } else if (button == bGuardar) {
+            guardarVendedor();
         }
     }
 
     private void irAtras() {
-        // Regresar al Login
         try {
             Stage stage = (Stage) bAtras.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/proyectofinal/Login.fxml"));
@@ -73,11 +79,60 @@ public class RegistrarUsuarioController {
         }
     }
 
+    private void guardarVendedor() {
+        String nombre = tfNombre.getText();
+        String apellido = tfApellido.getText();
+        String cedula = tfCedula.getText();
+        String direccion = tfDireccion.getText();
+        String contrasena = tfConstrasena.getText();
+
+        if (nombre == null || nombre.trim().isEmpty() ||
+            apellido == null || apellido.trim().isEmpty() ||
+            cedula == null || cedula.trim().isEmpty() ||
+            direccion == null || direccion.trim().isEmpty() ||
+            contrasena == null || contrasena.trim().isEmpty()) {
+
+            showError("Por favor, complete todos los campos.");
+            return;
+        }
+
+        Vendedor nuevoVendedor = new Vendedor(nombre, apellido, cedula, direccion, contrasena);
+
+        // Agregar al "repositorio" de vendedores
+        IngresarUsuarioController.agregarVendedor(nuevoVendedor);  // Llamar al método estático de IngresarUsuarioController
+
+         // Guardar la lista de vendedores de forma persistente (binario o XML)
+        Persistencia.guardarVendedoresBinarioAsync(IngresarUsuarioController.obtenerVendedores());
+        Persistencia.guardarVendedoresXMLAsync(IngresarUsuarioController.obtenerVendedores());
+
+        showConfirmation("Vendedor guardado con éxito.");
+
+        // Limpiar los campos
+        limpiarCampos();
+    }
+
+    private void limpiarCampos() {
+        tfNombre.clear();
+        tfApellido.clear();
+        tfCedula.clear();
+        tfDireccion.clear();
+        tfConstrasena.clear();
+    }
+
     private void showError(String message) {
-        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    private void showConfirmation(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Éxito");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

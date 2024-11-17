@@ -9,8 +9,8 @@ public class PersistenciaPruebas {
             Marketplace marketplace = new Marketplace("marketplace");
             
             // Crear vendedores
-            Vendedor vendedor1 = new Vendedor("Juan", "Pérez", "123456789", "Calle Falsa 123");
-            Vendedor vendedor2 = new Vendedor("Ana", "García", "87654321", "Calle 2");
+            Vendedor vendedor1 = new Vendedor("Juan", "Pérez", "123456789", "Calle Falsa 123", null);
+            Vendedor vendedor2 = new Vendedor("Ana", "García", "87654321", "Calle 2", null);
 
             Solicitud solicitud = new Solicitud(vendedor1, vendedor2);
             vendedor1.agregarContacto(vendedor2, solicitud);;
@@ -23,8 +23,8 @@ public class PersistenciaPruebas {
             marketplace.agregarVendedor(vendedor2);
 
             // Persistencia
-            Persistencia.guardarVendedoresBinario(marketplace.getVendedores());
-            List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresBinario();
+            Persistencia.guardarVendedoresBinarioAsync(marketplace.getVendedores());
+            List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresBinarioAsync();
             
             // Mostrar vendedores cargados
             for (Vendedor v : vendedoresCargados) {

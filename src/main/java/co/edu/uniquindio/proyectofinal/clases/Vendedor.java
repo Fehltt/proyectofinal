@@ -19,34 +19,44 @@ import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoExce
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
 public class Vendedor implements Serializable {
-   private String nombre;
-   private String apellido; 
-   private String cedula;
-   private String direccion;
-   private Muro muro;
-   private static List<Vendedor> contactos = new ArrayList<>();
-   private static List<Producto> productos = new ArrayList<>();
-   private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
-   private static List<Solicitud> solicitudesRechazadas = new ArrayList<>();
-   private static List <Producto> productosVendidos = new ArrayList<>();
-   private static List <Solicitud> solicitudesAceptadas = new ArrayList<>();
-   private ManejadorCliente manejadorCliente;
-   private static List <Producto> productosTotales = new ArrayList<>();
-
-    //Constuctor
-
-    public Vendedor(String nombre, String apellido, String cedula, String direccion) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cedula = cedula;
-        this.direccion = direccion;
-        this.muro = muro;
-    }
-
-    //Getters y Setters
-
-    public String getNombre() {
-        return nombre;
+   private static String nombre;
+      private String apellido; 
+      private String cedula;
+      private String direccion;
+      private Muro muro;
+      private String contrasena;
+      private static List<Vendedor> contactos = new ArrayList<>();
+      private static List<Producto> productos = new ArrayList<>();
+      private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
+      private static List<Solicitud> solicitudesRechazadas = new ArrayList<>();
+      private static List <Producto> productosVendidos = new ArrayList<>();
+      private static List <Solicitud> solicitudesAceptadas = new ArrayList<>();
+      private ManejadorCliente manejadorCliente;
+      private static List <Producto> productosTotales = new ArrayList<>();
+   
+       //Constuctor
+   
+       public Vendedor(String nombre, String apellido, String cedula, String direccion, String contrasena) {
+           this.nombre = nombre;
+           this.apellido = apellido;
+           this.cedula = cedula;
+           this.direccion = direccion;
+           this.muro = muro;
+           this.contrasena = contrasena;
+       }
+   
+       //Getters y Setters
+   
+       public String getContrasena() {
+           return contrasena;
+       }
+   
+       public void setContrasena(String contrasena) {
+           this.contrasena = contrasena;
+       }
+   
+       public static String getNombre() {
+           return nombre;
     }
 
     public void setNombre(String nombre) {

@@ -4,30 +4,30 @@ import java.io.Serializable;
 
 public class Mensaje implements Serializable {
     
-    private String remitente;
-    private String destinatario;
+    private Vendedor remitente;
+    private Vendedor destinatario;
     private String contenido;
 
     // Constructor
-    public Mensaje(String destinatario, String contenido) {
+    public Mensaje(Vendedor destinatario, String contenido, Vendedor remitente) {
         this.destinatario = destinatario;
         this.contenido = contenido;
     }
 
     // Métodos Getter y Setter
-    public String getDestinatario() {
+    public Vendedor getDestinatario() {
         return destinatario;
     }
 
-    public String getRemitente() {
+    public Vendedor getRemitente() {
         return remitente;
     }
 
-    public void setRemitente(String remitente) {
+    public void setRemitente(Vendedor remitente) {
         this.remitente = remitente;
     }
 
-    public void setDestinatario(String destinatario) {
+    public void setDestinatario(Vendedor destinatario) {
         this.destinatario = destinatario;
     }
 
