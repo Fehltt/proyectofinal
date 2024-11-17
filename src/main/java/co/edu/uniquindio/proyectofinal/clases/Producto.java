@@ -12,6 +12,10 @@ public class Producto implements Serializable {
     private String nombre;
     private double precio;
     private String descripcion;
+    public List<Vendedor> getLikes() {
+        return likes;
+    }
+
     private String codigo;
     private LocalTime horaDePublicacion;
     private LocalDate fechaDePublicacion;

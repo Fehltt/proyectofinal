@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
-public class Mensaje {
+import java.io.Serializable;
+
+public class Mensaje implements Serializable {
     
     private String remitente;
     

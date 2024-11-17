@@ -8,12 +8,15 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
-
+import java.util.stream.Collectors;
 
 import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
 import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
+import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
 public class Vendedor implements Serializable {
    private String nombre;
@@ -28,6 +31,7 @@ public class Vendedor implements Serializable {
    private static List <Producto> productosVendidos = new ArrayList<>();
    private static List <Solicitud> solicitudesAceptadas = new ArrayList<>();
    private ManejadorCliente manejadorCliente;
+   private static List <Producto> productosTotales = new ArrayList<>();
 
     //Constuctor
 
@@ -116,6 +120,17 @@ public class Vendedor implements Serializable {
             
         }
     }
+    public int contarProductosPublicados(){
+        return productos.size();
+    }
+
+    public int contarContactos(){
+        return contactos.size();
+    }
+
+    public int contarProductosVendidos(){
+        return productosVendidos.size();
+    }
 
     @SuppressWarnings("static-access")
     public void agregarProducto(Producto producto) throws IOException{
@@ -124,6 +139,35 @@ public class Vendedor implements Serializable {
         this.guardarProductosTXT();
         this.guardarProductos();
         this.GuardarProductosXML();
+        productosTotales.add(producto);
+    }
+
+    public List<Producto> obtenerTop10ProductosConLikes(){
+        productosTotales.sort((p1, p2)-> Integer.compare(p2.getLikes().size(), p1.getLikes().size()));
+        return productosTotales.stream().limit(10).collect(Collectors.toList());
+    }
+
+    public static Vendedor buscarVendedorPorNombre(String nombre){
+        Optional<Vendedor> vendedor = Marketplace.getVendedores().stream().filter(v -> v.nombre.equalsIgnoreCase(nombre)).findAny();
+        return vendedor.orElse(null);
+    }
+
+    public static Vendedor buscarVendedorPorCedula(String cedula){
+        Optional<Vendedor> vendedor = Marketplace.getVendedores().stream().filter(v -> v.nombre.equalsIgnoreCase(cedula)).findAny();
+        return vendedor.orElse(null);
+    }
+
+    public static List<Vendedor> sugerirVendedores (){
+        List<Vendedor> sugeridos  = new ArrayList<>();
+
+        for (Vendedor contacto: contactos){
+
+            for (Vendedor contactoDeContacto: contacto.getContactos()){
+                if(!contactos.contains(contactoDeContacto) && !sugeridos.contains(contactoDeContacto)){
+                    sugeridos.add(contactoDeContacto);
+                }
+            } 
+        } return sugeridos;
     }
 
     //Persistencia
@@ -492,6 +536,23 @@ public class Vendedor implements Serializable {
                 }
             }
     }
+    public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException{
+        if (contactos.contains(solicitante)){
+            List<Producto> productosOrdenados = new ArrayList<Producto>();
+            for (Vendedor contacto : contactos) {
+            productosOrdenados.addAll(contacto.getProductos());
+        }
+        productosOrdenados.sort(Comparator.comparing(Producto::getFechaDePublicacion).reversed());
+        
+        return productosOrdenados;
+    }else{
+        System.out.println("El vendedor no hace parte de su lista");
+        return null;
+    }
+    
+
+    }
+
 
 
 }
