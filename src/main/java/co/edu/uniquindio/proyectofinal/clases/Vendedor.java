@@ -1,22 +1,12 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
-
-import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
-import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
-import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
 public class Vendedor implements Serializable {
    private String nombre;
@@ -82,6 +72,14 @@ public class Vendedor implements Serializable {
 
     public void setMuro(Muro muro) {
         this.muro = muro;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public List<Vendedor> getContactos() {

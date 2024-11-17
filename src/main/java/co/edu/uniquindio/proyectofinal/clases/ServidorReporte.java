@@ -15,7 +15,7 @@ public class ServidorReporte {
             System.out.println("Servidor en línea");
             while(true){
                 Socket socket = serverSocket.accept();
-                new Thread (new ManejadorCliente(socket, null, null)).start();
+                new Thread (new ManejadorClienteReporte(socket)).start();
             }
         }
     }

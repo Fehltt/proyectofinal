@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Productos>
+	<producto>
+		 <Nombre>Producto1</Nombre>
+		 <Codigo>null</Codigo> 
+	</producto>
+	<producto>
+		 <Nombre>Producto2</Nombre>
+		 <Codigo>null</Codigo> 
+	</producto>
 </Productos>
