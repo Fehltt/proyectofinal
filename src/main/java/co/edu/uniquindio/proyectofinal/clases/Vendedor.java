@@ -343,7 +343,7 @@ public class Vendedor implements Serializable {
 
 
     public static void GuardarSolicitudesPendientesXML () throws IOException{
-        String Filepath = "C:\\Users\\usuario\\Downloads\\proyectofinal-1\\solicitudesPendientes.xml";
+        String Filepath = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinalsolicitudesPendientes.xml";
 
         try (BufferedWriter xmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Filepath), "UTF-8"))){
 
@@ -547,24 +547,26 @@ public class Vendedor implements Serializable {
                 }
             }
     }
-    public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException{
-        if (contactos.contains(solicitante)){
-            List<Producto> productosOrdenados = new ArrayList<Producto>();
+    public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException {
+        if (contactos != null && contactos.contains(solicitante)) {
+            List<Producto> productosOrdenados = new ArrayList<>();
             for (Vendedor contacto : contactos) {
-            productosOrdenados.addAll(contacto.getProductos());
+                productosOrdenados.addAll(contacto.getProductos());
+            }
+            productosOrdenados.sort(Comparator.comparing(Producto::getFechaDePublicacion).reversed());
+    
+            return productosOrdenados;
+        } else {
+            System.out.println("El vendedor no hace parte de su lista");
+            return null;
         }
-        productosOrdenados.sort(Comparator.comparing(Producto::getFechaDePublicacion).reversed());
-        
-        return productosOrdenados;
-    }else{
-        System.out.println("El vendedor no hace parte de su lista");
-        return null;
     }
+    
     
 
     }
 
 
 
-}
+
 

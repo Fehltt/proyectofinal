@@ -2,13 +2,13 @@ Nombre del productoProducto1
 Codigo del productonull
 Descripcion del productoDescripcion del producto1
 Precio del producto100.0
-Autor de la publicación del productoco.edu.uniquindio.proyectofinal.clases.Vendedor@6d9c638
-Fecha de publicación del productonull
+Autor de la publicación del productonull
+Fecha de publicación del producto2024-11-17
 Hora de publicación del productonull
 Nombre del productoProducto2
 Codigo del productonull
 Descripcion del productoDescripcion del producto2
 Precio del producto150.0
-Autor de la publicación del productoco.edu.uniquindio.proyectofinal.clases.Vendedor@12f40c25
-Fecha de publicación del productonull
+Autor de la publicación del productonull
+Fecha de publicación del producto2024-11-17
 Hora de publicación del productonull

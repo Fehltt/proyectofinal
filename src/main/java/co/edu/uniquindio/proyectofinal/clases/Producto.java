@@ -3,6 +3,7 @@ package co.edu.uniquindio.proyectofinal.clases;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.uniquindio.proyectofinal.excepciones.NegativoException;
@@ -23,11 +24,13 @@ public class Producto implements Serializable {
     private List<Comentario> comentarios;
     private EstadoProducto estadoProducto;
 
-    public Producto(int likes, String nombre, double precio, String descripcion, EstadoProducto estadoProducto) {
+    public Producto(int likes, String nombre, double precio, String descripcion, EstadoProducto estadoProducto, LocalDate fechaDePublicacion) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.estadoProducto = estadoProducto;
+        this.fechaDePublicacion = fechaDePublicacion;
+        this.likes = new ArrayList<>();
     }
 
     public void verLista(){}

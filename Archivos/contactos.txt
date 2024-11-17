@@ -1,10 +1,10 @@
-Nombre: Ana
-Apellido: García
-Cedula: 987654321
-Direccion: Avenida Siempre Viva 742
-------------------------------
-Nombre: Juan
-Apellido: Pérez
+Nombre: Maria
+Apellido: Perez
 Cedula: 123456789
 Direccion: Calle Falsa 123
+------------------------------
+Nombre: Maria
+Apellido: Gomez
+Cedula: 987654321
+Direccion: Avenida Siempre Viva 742
 ------------------------------

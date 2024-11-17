@@ -14,9 +14,36 @@ import java.util.Scanner;
 
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
-public class main {
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+public class mainin {
 
     public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
+        // Iniciar el servidor de reporte en un hilo separado
+        new Thread(() -> {
+            try {
+                ServidorReporte.main(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        // Iniciar el servidor de chat en un hilo separado
+        new Thread(() -> {
+            ServidorChat servidorChat = new ServidorChat(12346);
+            servidorChat.iniciar();
+        }).start();
+
         // Crear instancia de Marketplace
         Marketplace marketplace = new Marketplace("Mi Marketplace");
 
@@ -28,13 +55,11 @@ public class main {
         marketplace.agregarVendedor(vendedor1);
         marketplace.agregarVendedor(vendedor2);
 
-        // Crear productos
-        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO);
-        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO);
-
-        // Establecer autores de los productos
-        producto1.setAutor(vendedor1);
-        producto2.setAutor(vendedor2);
+        // Crear productos con fecha de publicación
+        LocalDate fechaPublicacion1 = LocalDate.of(2024, 11, 17);
+        LocalDate fechaPublicacion2 = LocalDate.of(2024, 11, 17);
+        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, fechaPublicacion1);
+        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO, fechaPublicacion2);
 
         // Agregar productos a los vendedores
         vendedor1.agregarProducto(producto1);
@@ -55,12 +80,17 @@ public class main {
         System.out.println("Contactos de vendedor1: " + vendedor1.contarContactos());
         System.out.println("Contactos de vendedor2: " + vendedor2.contarContactos());
 
+        // Añadir likes a los productos
+        producto1.recibirLike(vendedor2);
+        producto1.recibirLike(vendedor2); // Añadir más likes para probar
+        producto2.recibirLike(vendedor1);
+
         // Mostrar productos de un vendedor
         List<Producto> productos = vendedor1.mostrarProductos(vendedor2);
         if (productos != null) {
             System.out.println("Productos de vendedor2 vistos por vendedor1:");
             for (Producto p : productos) {
-                System.out.println(p.getNombre() + " - " + p.getDescripcion() + " - " + p.getPrecio());
+                System.out.println(p.getNombre() + " - " + p.getDescripcion() + " - " + p.getPrecio() + " - Likes: " + p.getLikes().size());
             }
         }
 
@@ -74,21 +104,14 @@ public class main {
         // Persistencia de datos: guardar productos
         vendedor1.guardarProductos();
         vendedor2.guardarProductos();
-        
-        // Iniciar servidor de chat
-        ServidorChat servidorChat = new ServidorChat(12345);
-        new Thread(servidorChat::iniciar).start();
 
-        // Iniciar cliente de chat para vendedor1
-        Socket socketVendedor1 = new Socket("localhost", 12345);
-        ManejadorCliente manejadorClienteVendedor1 = new ManejadorCliente(socketVendedor1, vendedor1);
-
-        // Iniciar cliente de chat para vendedor2
-        Socket socketVendedor2 = new Socket("localhost", 12345);
-        ManejadorCliente manejadorClienteVendedor2 = new ManejadorCliente(socketVendedor2, vendedor2);
-
-        // Enviar mensaje de chat desde vendedor1 a vendedor2
-        Mensaje mensaje = new Mensaje(vendedor1, "Hola, María!", vendedor2);
-        manejadorClienteVendedor1.enviarMensaje(mensaje);
+        // Ejecutar el cliente de reporte
+        new Thread(() -> {
+            try {
+                ClienteReporte.main(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }

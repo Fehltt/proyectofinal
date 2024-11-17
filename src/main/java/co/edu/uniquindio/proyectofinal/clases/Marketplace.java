@@ -53,7 +53,7 @@ public class Marketplace {
     //Persistencia
 
     public static void guardarDatos() throws IOException {
-        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\vendedores.dat"));) {
+        try (ObjectOutputStream oosVendedores = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\vendedores.dat"));) {
             oosVendedores.writeObject(vendedores);
         }
     }
