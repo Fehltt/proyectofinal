@@ -2,34 +2,93 @@ package co.edu.uniquindio.proyectofinal.clases;
 
 import java.io.IOException;
 
-public class Main {
 
-    public static void main(String[] args) {
-        try {
-            // Crear vendedores
-            Vendedor vendedor1 = new Vendedor("Juan", "Pérez", "123456789", "Calle 1");
-            Vendedor vendedor2 = new Vendedor("María", "Gómez", "987654321", "Calle 2");
+import java.io.*;
+import java.net.Socket;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-            // Crear una solicitud de amistad entre vendedores
-            Solicitud solicitud1 = new Solicitud(vendedor1, vendedor2);
+import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
-            // Enviar solicitud entre vendedores
-            vendedor1.enviarSolicitud(vendedor2);
+public class main {
 
-            // Simulamos la aceptación de la solicitud por parte de vendedor2
-            vendedor2.agregarContacto(vendedor1, solicitud1);
+    public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
+        // Crear instancia de Marketplace
+        Marketplace marketplace = new Marketplace("Mi Marketplace");
 
-            Mensaje m1 = new Mensaje("Vendedor", "Hola");
-            // Ahora los vendedores pueden enviar mensajes entre sí
-            vendedor1.getManejadorCliente().enviarMensaje(m1);
-            vendedor2.getManejadorCliente().enviarMensaje(m1);
+        // Crear vendedores
+        Vendedor vendedor1 = new Vendedor("Juan", "Perez", "123456789", "Calle Falsa 123", "contrasena1");
+        Vendedor vendedor2 = new Vendedor("Maria", "Gomez", "987654321", "Avenida Siempre Viva 742", "contrasena2");
 
-            // Mostrar los mensajes enviados entre los vendedores
+        // Agregar vendedores al Marketplace
+        marketplace.agregarVendedor(vendedor1);
+        marketplace.agregarVendedor(vendedor2);
 
+        // Crear productos
+        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO);
+        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO);
 
-        } catch (IOException e) {
-            System.err.println("Error al manejar la solicitud o los mensajes: " + e.getMessage());
+        // Establecer autores de los productos
+        producto1.setAutor(vendedor1);
+        producto2.setAutor(vendedor2);
+
+        // Agregar productos a los vendedores
+        vendedor1.agregarProducto(producto1);
+        vendedor2.agregarProducto(producto2);
+
+        // Crear solicitud de contacto entre los vendedores
+        Solicitud solicitud1 = new Solicitud(vendedor1, vendedor2);
+
+        // Enviar solicitud de contacto
+        vendedor1.enviarSolicitud(vendedor2);
+
+        // Aceptar la solicitud de contacto
+        vendedor2.agregarContacto(vendedor1, solicitud1);
+
+        // Contar productos, contactos y productos vendidos
+        System.out.println("Productos publicados de vendedor1: " + vendedor1.contarProductosPublicados());
+        System.out.println("Productos publicados de vendedor2: " + vendedor2.contarProductosPublicados());
+        System.out.println("Contactos de vendedor1: " + vendedor1.contarContactos());
+        System.out.println("Contactos de vendedor2: " + vendedor2.contarContactos());
+
+        // Mostrar productos de un vendedor
+        List<Producto> productos = vendedor1.mostrarProductos(vendedor2);
+        if (productos != null) {
+            System.out.println("Productos de vendedor2 vistos por vendedor1:");
+            for (Producto p : productos) {
+                System.out.println(p.getNombre() + " - " + p.getDescripcion() + " - " + p.getPrecio());
+            }
         }
+
+        // Crear e imprimir el reporte de estadísticas
+        TableroDeControl tablero = new TableroDeControl();
+        tablero.generarEstadisticas();
+
+        // Exportar estadísticas a archivo
+        tablero.exportarEstadisticas("reporte_estadisticas.txt", "admin");
+
+        // Persistencia de datos: guardar productos
+        vendedor1.guardarProductos();
+        vendedor2.guardarProductos();
+        
+        // Iniciar servidor de chat
+        ServidorChat servidorChat = new ServidorChat(12345);
+        new Thread(servidorChat::iniciar).start();
+
+        // Iniciar cliente de chat para vendedor1
+        Socket socketVendedor1 = new Socket("localhost", 12345);
+        ManejadorCliente manejadorClienteVendedor1 = new ManejadorCliente(socketVendedor1, vendedor1);
+
+        // Iniciar cliente de chat para vendedor2
+        Socket socketVendedor2 = new Socket("localhost", 12345);
+        ManejadorCliente manejadorClienteVendedor2 = new ManejadorCliente(socketVendedor2, vendedor2);
+
+        // Enviar mensaje de chat desde vendedor1 a vendedor2
+        Mensaje mensaje = new Mensaje(vendedor1, "Hola, María!", vendedor2);
+        manejadorClienteVendedor1.enviarMensaje(mensaje);
     }
 }
-
