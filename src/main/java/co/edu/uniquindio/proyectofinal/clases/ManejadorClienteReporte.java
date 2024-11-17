@@ -52,4 +52,6 @@ public class ManejadorClienteReporte implements Runnable {
 
 
 }
+
+
 }
