@@ -21,12 +21,14 @@ public class ServidorChat implements Runnable {
     private ExecutorService poolHilos;
     private boolean enFuncion;
     private Map <Socket, Vendedor> mapeoSocketsAVendedores;
+    private int cantidadMensajes;
 
     public ServidorChat(){
         clientesConectados = new ArrayList<>() ;
         poolHilos = Executors.newFixedThreadPool(10);
         enFuncion = true;
         mapeoSocketsAVendedores = new HashMap<>();
+        
         
     }
 
@@ -128,6 +130,8 @@ public class ServidorChat implements Runnable {
                 if (manejadorDestino != null) {
                     // Enviar el mensaje al destinatario
                     manejadorDestino.enviarMensaje(mensaje);
+                    cantidadMensajes++;
+
                 }
             } else {
                 // El destinatario no es contacto o no está disponible
@@ -137,7 +141,7 @@ public class ServidorChat implements Runnable {
             System.out.println("Error al recibir mensaje: " + e.getMessage());
         }
     }
-    
+
 
 
     
