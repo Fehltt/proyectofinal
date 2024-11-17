@@ -3,6 +3,7 @@ package co.edu.uniquindio.proyectofinal.clases;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,171 +18,198 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 public class Persistencia {
-    private static final Object lockBinario = new Object();
-    private static final Object lockXML = new Object();
 
-    private static final String RUTA_VENDEDORES_DAT = "Persistencia/archivos/vendedores.dat";
-    private static final String RUTA_VENDEDORES_XML = "Persistencia/archivos/vendedores.xml";
-    private static final String RUTA_LOG = "Persistencia/log/logSerializacion.txt";
-    private static final String RUTA_RESPALDO = "Persistencia/respaldo/";
+    protected static final String RUTA_VENDEDORES_DAT = "C:\\td\\persistencia\\vendedores.dat";
+    protected static final String RUTA_VENDEDORES_XML = "C:\\td\\persistencia\\vendedores.xml";
 
-    // Asegúrate de que las carpetas existan
-    private static void asegurarseDeQueLasRutasExisten() {
-        File[] directorios = {
-            new File("Persistencia/archivos/"),
-            new File("Persistencia/log/"),
-            new File(RUTA_RESPALDO)
-        };
+    public static void asegurarseDeQueLasRutasExisten() {
+        new File("C:\\td\\persistencia\\").mkdirs(); // Crea la carpeta de persistencia
+        new File("C:\\td\\persistencia\\logs\\").mkdirs(); // Crea la carpeta de logs
+    }
+
+    // Serialización Binaria
+    public static void guardarObjeto(Object object, String filepath) throws IOException {
+        asegurarseDeQueLasRutasExisten();
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filepath))){
+            oos.writeObject(object);
+            Utilidades.getInstance().escribirLog(Level.INFO,"Función guardarObjeto en Persistencia. Funcionamiento adecuado");
+        } catch (IOException e){
+            Utilidades.getInstance().escribirLog(Level.WARNING,"Error en función guardarObjeto en Persistencia " + e);
+            throw e;
+        }
+    }
+
+    public static Object cargarObjeto(String filepath) throws IOException, ClassNotFoundException{
+        asegurarseDeQueLasRutasExisten();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filepath))){
+            Object object = ois.readObject();
+            Utilidades.getInstance().escribirLog(Level.INFO,"Función cargarObjeto en Persistencia. Funcionamiento adecuado");
+            return object;
+        } catch (IOException | ClassNotFoundException e) {
+            Utilidades.getInstance().escribirLog(Level.WARNING,"Error en función cargarObjeto en Persistencia " + e);
+            throw e;
+        }
+    }
+
+    // Guardar en XML
+    public static void guardarXML(List<?> list, String filepath, String ruta, String nombre) throws IOException {
+        asegurarseDeQueLasRutasExisten();
+        try {
+            DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+            Document document = documentBuilder.newDocument();
+            Element rutaDocument = document.createElement(ruta);
+            document.appendChild(rutaDocument);
+
+            for (Object object : list) {
+                Element element = document.createElement(nombre);
+                if(object instanceof Vendedor){
+                    Vendedor vendedor = (Vendedor) object;
+                    
+                    // Nombre
+                    Element nombreElement = document.createElement("nombre");
+                    nombreElement.appendChild(document.createTextNode(vendedor.getNombre()));
+                    element.appendChild(nombreElement);
+
+                    // Apellido
+                    Element apellidoElement = document.createElement("apellido");
+                    apellidoElement.appendChild(document.createTextNode(vendedor.getApellido()));
+                    element.appendChild(apellidoElement);
+
+                    // Cédula
+                    Element cedulaElement = document.createElement("cedula");
+                    cedulaElement.appendChild(document.createTextNode(vendedor.getCedula()));
+                    element.appendChild(cedulaElement);
+
+                    // Dirección
+                    Element direccionElement = document.createElement("direccion");
+                    direccionElement.appendChild(document.createTextNode(vendedor.getDireccion()));
+                    element.appendChild(direccionElement);
+
+                    //Productos
+                    Element productos = document.createElement("productos");
+                    for (Producto producto : vendedor.getProductos()) {
+                        Element productoElement = document.createElement("prodcuto");
+
+                        // Nombre
+                        Element nombreProducto = document.createElement("nombreProducto");
+                        nombreProducto.appendChild(document.createTextNode(producto.getNombre()));
+                        productoElement.appendChild(nombreProducto);
+
+                        //Código
+                        Element codigoProducto = document.createElement("codigoProducto");
+                        codigoProducto.appendChild(document.createTextNode(producto.getCodigo()));
+                        productoElement.appendChild(codigoProducto);
+
+                        //Descripción
+                        Element descripcionProducto = document.createElement("descripcionProducto");
+                        descripcionProducto.appendChild(document.createTextNode(producto.getDescripcion()));
+                        productoElement.appendChild(descripcionProducto);
+
+                        //Precio
+                        Element precioProducto = document.createElement("precioProducto");
+                        precioProducto.appendChild(document.createTextNode(String.valueOf(producto.getPrecio())));
+                        productoElement.appendChild(precioProducto);
+
+                        //EstadoProducto
+                        Element estadoProducto = document.createElement("estadoProducto");
+                        estadoProducto.appendChild(document.createTextNode(producto.getEstadoProducto().toString()));
+                        productoElement.appendChild(estadoProducto);
+
+                        //Fecha publicación
+                        Element fechaDePublicacionProducto = document.createElement("fechaDePublicacionProducto");
+                        fechaDePublicacionProducto.appendChild(document.createTextNode(producto.getFechaDePublicacion().toString()));
+                        productoElement.appendChild(fechaDePublicacionProducto);
+
+                        //Hora
+                        Element horaProducto = document.createElement("horaProducto");
+                        horaProducto.appendChild(document.createTextNode(producto.getHoraDePublicacion().toString()));
+                        productoElement.appendChild(horaProducto);
+
+                        productos.appendChild(productoElement);
+                    }
+                    element.appendChild(productos);
+                }
+                rutaDocument.appendChild(element);
+            }
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            DOMSource source = new DOMSource();
+            StreamResult result = new StreamResult(new File(filepath));
+            transformer.transform(source, result);
+            Utilidades.getInstance().escribirLog(Level.INFO, "Función guardarXML en Persistencia. Funcionamiento adecuado");
+        } catch (Exception e) {
+            Utilidades.getInstance().escribirLog(Level.WARNING, "Error en función guardarXML en Persistencia " + e);
+            throw new IOException(e);
+        }
+    }
     
-        for (File dir : directorios) {
-            if (!dir.exists()) {
-                dir.mkdirs(); // Crear directorios si no existen
+    public static List<Vendedor> cargarVendedoresXML() throws IOException {
+        asegurarseDeQueLasRutasExisten();
+        List<Vendedor> vendedores = new ArrayList<>();
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new File(RUTA_VENDEDORES_XML));
+            document.getDocumentElement().normalize();
+
+            Element rootElement = document.getDocumentElement();
+            NodeList nodeList = rootElement.getElementsByTagName("vendedor");
+            
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element vendedorElement = (Element) nodeList.item(i);
+
+                String nombre = vendedorElement.getElementsByTagName("nombre").item(0).getTextContent();
+                String apellido = vendedorElement.getElementsByTagName("apellido").item(0).getTextContent();
+                String cedula = vendedorElement.getElementsByTagName("cedula").item(0).getTextContent();
+                String direccion = vendedorElement.getElementsByTagName("direccion").item(0).getTextContent();
+
+                Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion);
+                vendedores.add(vendedor);
             }
+            
+            Utilidades.getInstance().escribirLog(Level.INFO, "Función cargarVendedoresXML en Persistencia. Funcionamiento adecuado " + RUTA_VENDEDORES_XML);
+        } catch (Exception e) {
+            Utilidades.getInstance().escribirLog(Level.WARNING, "Error en función cargarVendedoresXML en Persistencia " + e);
+            throw new IOException(e);
         }
+        return vendedores;
     }
 
-    // Guardar vendedores en formato binario de manera asincrónica
-    public static void guardarVendedoresBinarioAsync(List<Vendedor> vendedores) {
-        new Thread(() -> {
-            synchronized (lockBinario) { // Sincronizar el acceso al archivo binario
-                try {
-                    asegurarseDeQueLasRutasExisten();
-                    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(RUTA_VENDEDORES_DAT))) {
-                        oos.writeObject(vendedores);
-                        log("Se guardaron los vendedores en formato binario.");
+    //Guardar en formato TXT
+    public static void guardarTXT(List<?> list, String filepath) throws IOException{
+        asegurarseDeQueLasRutasExisten();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
+            for (Object object : list) {
+                if (object instanceof Vendedor){
+                    Vendedor vendedor = (Vendedor) object;
+                    writer.write("Nombre: " + vendedor.getNombre() + "\n");
+                    writer.write("Apellido: " + vendedor.getApellido() + "\n");
+                    writer.write("Cedula: " + vendedor.getCedula() + "\n");
+                    writer.write("Direccion: " + vendedor.getDireccion() + "\n");
+                    writer.write("Productos: \n");
+
+                    for (Producto producto: vendedor.getProductos()) {
+                        writer.write("\tNombre del prodcuto: " + producto.getNombre() + "\n");
+                        writer.write("\tCodigo del producto: " + producto.getCodigo() + "\n");
+                        writer.write("\tDescripcion del producto: " + producto.getDescripcion() + "\n");
+                        writer.write("\tPrecio del producto: " + producto.getPrecio() + "\n");
+                        writer.write("\tEstado del producto: " + producto.getEstadoProducto() + "\n");
+                        writer.write("\tFecha de publicacion: " + producto.getFechaDePublicacion() + "\n");
+                        writer.write("\tHora de publicacion: " + producto.getHoraDePublicacion() + "\n\n");
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    log("Error al guardar vendedores en binario: " + e.getMessage());
+                    writer.write("------------------------------\n");
                 }
             }
-        }).start();
-    }
-
-    // Cargar vendedores desde un archivo binario de manera asincrónica
-    public static void cargarVendedoresBinarioAsync() {
-        new Thread(() -> {
-            synchronized (lockBinario) {
-                asegurarseDeQueLasRutasExisten();
-                File file = new File(RUTA_VENDEDORES_DAT);
-                if (file.exists() && file.length() > 0) {
-                    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(RUTA_VENDEDORES_DAT))) {
-                        List<Vendedor> vendedores = (List<Vendedor>) ois.readObject();
-                        log("Se cargaron los vendedores desde formato binario.");
-                        
-                        // Mostrar los datos cargados en consola
-                        vendedores.forEach(System.out::println);
-                    } catch (EOFException e) {
-                        log("El archivo binario está vacío o incompleto: " + e.getMessage());
-                    } catch (ClassNotFoundException | IOException e) {
-                        e.printStackTrace();
-                        log("Error al cargar vendedores desde binario: " + e.getMessage());
-                    }
-                } else {
-                    log("El archivo de vendedores está vacío o no existe.");
-                }
-            }
-        }).start();
-    }
-
-    // Guardar vendedores en formato XML de manera asincrónica
-    public static void guardarVendedoresXMLAsync(List<Vendedor> vendedores) {
-        new Thread(() -> {
-            synchronized (lockXML) {
-                try {
-                    asegurarseDeQueLasRutasExisten();
-                    DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-                    DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-                    Document document = documentBuilder.newDocument();
-                    
-                    Element root = document.createElement("vendedores");
-                    document.appendChild(root);
-                    
-                    for (Vendedor vendedor : vendedores) {
-                        Element vendedorElement = document.createElement("vendedor");
-                        Element nombre = document.createElement("nombre");
-                        nombre.appendChild(document.createTextNode(vendedor.getNombre()));
-                        vendedorElement.appendChild(nombre);
-                        Element apellido = document.createElement("apellido");
-                        apellido.appendChild(document.createTextNode(vendedor.getApellido()));
-                        vendedorElement.appendChild(apellido);
-                        Element cedula = document.createElement("cedula");
-                        cedula.appendChild(document.createTextNode(vendedor.getCedula()));
-                        vendedorElement.appendChild(cedula);
-                        Element direccion = document.createElement("direccion");
-                        direccion.appendChild(document.createTextNode(vendedor.getDireccion()));
-                        vendedorElement.appendChild(direccion);
-                        Element contrasena = document.createElement("contraseña");
-                        contrasena.appendChild(document.createTextNode(vendedor.getContrasena()));
-                        vendedorElement.appendChild(contrasena);
-                        root.appendChild(vendedorElement);
-                    }
-                    
-                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                    Transformer transformer = transformerFactory.newTransformer();
-                    transformer.setOutputProperty("indent", "yes");
-                    DOMSource source = new DOMSource(document);
-                    StreamResult result = new StreamResult(new File(RUTA_VENDEDORES_XML));
-                    transformer.transform(source, result);
-                    
-                    log("Se guardaron los vendedores en formato XML.");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    log("Error al guardar vendedores en XML: " + e.getMessage());
-                }
-            }
-        }).start();
-    }
-
-    // Cargar vendedores desde un archivo XML de manera asincrónica
-    public static void cargarVendedoresXMLAsync() {
-        new Thread(() -> {
-            synchronized (lockXML) {
-                asegurarseDeQueLasRutasExisten();
-                File xmlFile = new File(RUTA_VENDEDORES_XML);
-                if (xmlFile.exists() && xmlFile.length() > 0) {
-                    try {
-                        List<Vendedor> vendedores = new ArrayList<>();
-                        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                        DocumentBuilder builder = factory.newDocumentBuilder();
-                        Document document = builder.parse(xmlFile);
-                        document.getDocumentElement().normalize();
-                        
-                        NodeList nodeList = document.getElementsByTagName("vendedor");
-                        for (int i = 0; i < nodeList.getLength(); i++) {
-                            Element vendedorElement = (Element) nodeList.item(i);
-                            String nombre = vendedorElement.getElementsByTagName("nombre").item(0).getTextContent();
-                            String apellido = vendedorElement.getElementsByTagName("apellido").item(0).getTextContent();
-                            String cedula = vendedorElement.getElementsByTagName("cedula").item(0).getTextContent();
-                            String direccion = vendedorElement.getElementsByTagName("direccion").item(0).getTextContent();
-                            String contrasena = vendedorElement.getElementsByTagName("contraseña").item(0).getTextContent();
-                            
-                            Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion, contrasena);
-                            vendedores.add(vendedor);
-                        }
-                        
-                        log("Se cargaron los vendedores desde formato XML.");
-                        vendedores.forEach(System.out::println);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        log("Error al cargar vendedores desde XML: " + e.getMessage());
-                    }
-                } else {
-                    log("El archivo XML de vendedores está vacío o no existe.");
-                }
-            }
-        }).start();
-    }
-
-    // Manejo de Logs
-    private static synchronized void log(String mensaje) {
-        try (FileWriter fw = new FileWriter(RUTA_LOG, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-            out.println(mensaje);
+            Utilidades.getInstance().escribirLog(Level.INFO, "Función guardarTXT en Persistencia. Funcionamiento adecuado");
         } catch (IOException e) {
-            e.printStackTrace();
+            Utilidades.getInstance().escribirLog(Level.WARNING, "Error en función guardarTXT en Persistencia " + e);
+            throw e;
         }
     }
-}
 
+
+
+}

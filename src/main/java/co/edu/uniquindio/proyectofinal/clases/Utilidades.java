@@ -12,8 +12,6 @@ import java.util.logging.SimpleFormatter;
 
 public class Utilidades {
 
-
-
     private static Utilidades instance;
     private Logger logger;
 
@@ -37,6 +35,7 @@ public class Utilidades {
     }
 
     
+    @SuppressWarnings("exports")
     public void escribirLog(Level level, String mensaje) {
         logger.log(level, mensaje);
     }

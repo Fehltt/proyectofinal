@@ -7,6 +7,8 @@ import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException
 
 public class main {
 
+public class mainin {
+
     public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
 
         // Iniciar el servidor de chat en un hilo separado
