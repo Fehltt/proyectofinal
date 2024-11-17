@@ -3,10 +3,13 @@ package co.edu.uniquindio.proyectofinal.clases;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
+
+import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
 public class Vendedor implements Serializable {
    private String nombre;
@@ -14,6 +17,7 @@ public class Vendedor implements Serializable {
    private String cedula;
    private String direccion;
    private Muro muro;
+   private String contrasena;
    private static List<Vendedor> contactos = new ArrayList<>();
    private static List<Producto> productos = new ArrayList<>();
    private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
@@ -25,11 +29,12 @@ public class Vendedor implements Serializable {
 
     //Constuctor
 
-    public Vendedor(String nombre, String apellido, String cedula, String direccion) {
+    public Vendedor(String nombre, String apellido, String cedula, String direccion, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
+        this.contrasena = contrasena;
     }
 
     //Getters y Setters
@@ -205,5 +210,22 @@ public class Vendedor implements Serializable {
     public void agregarProductoVendido(Producto producto) {
         productosVendidos.add(producto);
         Utilidades.getInstance().escribirLog(Level.INFO,"Función agregarProductoVendido en Vendedor: Funcionamiento adecuado");
+    }
+
+    public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException{
+        if (contactos.contains(solicitante)){
+            List<Producto> productosOrdenados = new ArrayList<Producto>();
+            for (Vendedor contacto : contactos) {
+            productosOrdenados.addAll(contacto.getProductos());
+        }
+        productosOrdenados.sort(Comparator.comparing(Producto::getFechaDePublicacion).reversed());
+        
+        return productosOrdenados;
+    }else{
+        System.out.println("El vendedor no hace parte de su lista");
+        return null;
+    }
+    
+
     }
 }

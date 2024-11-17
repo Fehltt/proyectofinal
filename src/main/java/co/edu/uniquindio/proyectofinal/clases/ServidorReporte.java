@@ -11,7 +11,7 @@ public class ServidorReporte {
     private static List<Vendedor> vendedores = new ArrayList<>();
 
     public static void main (String [] args) throws IOException{
-        try (ServerSocket serverSocket = new ServerSocket(12345)){
+        try (ServerSocket serverSocket = new ServerSocket(12348)){
             System.out.println("Servidor en línea");
             while(true){
                 Socket socket = serverSocket.accept();

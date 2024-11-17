@@ -165,8 +165,9 @@ public class Persistencia {
                 String apellido = vendedorElement.getElementsByTagName("apellido").item(0).getTextContent();
                 String cedula = vendedorElement.getElementsByTagName("cedula").item(0).getTextContent();
                 String direccion = vendedorElement.getElementsByTagName("direccion").item(0).getTextContent();
+                String contrasena = vendedorElement.getElementsByTagName("contrasena").item(0).getTextContent();
 
-                Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion);
+                Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion, contrasena);
                 vendedores.add(vendedor);
             }
             
@@ -186,7 +187,7 @@ public class Persistencia {
                 if (object instanceof Vendedor){
                     Vendedor vendedor = (Vendedor) object;
                     writer.write("Nombre: " + vendedor.getNombre() + "\n");
-                    writer.write("Apellido: " + vendedor.getApellido() + "\n");
+                   writer.write("Apellido: " + vendedor.getApellido() + "\n");
                     writer.write("Cedula: " + vendedor.getCedula() + "\n");
                     writer.write("Direccion: " + vendedor.getDireccion() + "\n");
                     writer.write("Productos: \n");

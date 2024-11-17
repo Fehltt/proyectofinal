@@ -1,17 +1,13 @@
 <Título> Reporte de Estadísticas de vendedores 
 <Fecha>Fecha: 17/11/24
 Información de reporte 
-Vendedor: MariaPerez
+Vendedor: JuanPerez
 Cantidad de productos publicados: 2
 Cantidad de productos vendidos: 0
-Cantidad de contactos: 2Top 10 de productos con más likesProducto: Producto1Likes: 2
-Producto: Producto2Likes: 1
-------------------------------------------------------------
+Cantidad de contactos: 2Top 10 de productos con más likes------------------------------------------------------------
 Vendedor: MariaGomez
 Cantidad de productos publicados: 2
 Cantidad de productos vendidos: 0
-Cantidad de contactos: 2Top 10 de productos con más likesProducto: Producto1Likes: 2
-Producto: Producto2Likes: 1
-------------------------------------------------------------
+Cantidad de contactos: 2Top 10 de productos con más likes------------------------------------------------------------
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

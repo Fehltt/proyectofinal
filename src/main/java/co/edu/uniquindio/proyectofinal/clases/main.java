@@ -1,17 +1,25 @@
 package co.edu.uniquindio.proyectofinal.clases;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
+
 public class main {
 
-public class mainin {
-
     public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
+        // Iniciar el servidor de reporte en un hilo separado (puerto 12348)
+        new Thread(() -> {
+            try {
+                ServidorReporte.main(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
 
-        // Iniciar el servidor de chat en un hilo separado
+        // Iniciar el servidor de chat en un hilo separado (puerto 12346)
         new Thread(() -> {
             ServidorChat servidorChat = new ServidorChat(12346);
             servidorChat.iniciar();
@@ -31,8 +39,9 @@ public class mainin {
         // Crear productos con fecha de publicación
         LocalDate fechaPublicacion1 = LocalDate.of(2024, 11, 17);
         LocalDate fechaPublicacion2 = LocalDate.of(2024, 11, 17);
-        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, fechaPublicacion1);
-        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO, fechaPublicacion2);
+        LocalTime horaPublicacion = LocalTime.of(2, 0, 0);
+        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, fechaPublicacion1, horaPublicacion);
+        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO, fechaPublicacion2, horaPublicacion);
 
         // Agregar productos a los vendedores
         vendedor1.agregarProducto(producto1);
@@ -67,11 +76,13 @@ public class mainin {
             }
         }
 
+        // Crear e imprimir el reporte de estadísticas
+        TableroDeControl tablero = new TableroDeControl();
+        tablero.generarEstadisticas();
 
+        // Exportar estadísticas a archivo
+        tablero.exportarEstadisticas("reporte_estadisticas.txt", "admin");
 
-        // Persistencia de datos: guardar productos
-        vendedor1.guardarProductos();
-        vendedor2.guardarProductos();
 
         // Ejecutar el cliente de reporte
         new Thread(() -> {

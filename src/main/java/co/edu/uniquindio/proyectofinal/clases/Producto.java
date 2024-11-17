@@ -20,13 +20,14 @@ public class Producto implements Serializable {
     private List<Comentario> comentarios;
     private EstadoProducto estadoProducto;
 
-    public Producto(int likes, String nombre, double precio, String descripcion, EstadoProducto estadoProducto, LocalDate fechaDePublicacion) {
+    public Producto(int likes, String nombre, double precio, String descripcion, EstadoProducto estadoProducto, LocalDate fechaDePublicacion, LocalTime horaDePublicacion) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.estadoProducto = estadoProducto;
         this.fechaDePublicacion = fechaDePublicacion;
         this.likes = new ArrayList<>();
+        this.horaDePublicacion = horaDePublicacion;
     }
 
     public void verLista(){}
