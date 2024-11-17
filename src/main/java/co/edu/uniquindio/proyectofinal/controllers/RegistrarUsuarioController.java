@@ -102,7 +102,6 @@ public class RegistrarUsuarioController {
         IngresarUsuarioController.agregarVendedor(nuevoVendedor);  // Llamar al método estático de IngresarUsuarioController
 
          // Guardar la lista de vendedores de forma persistente (binario o XML)
-        Persistencia.guardarVendedoresBinarioAsync(IngresarUsuarioController.obtenerVendedores());
         Persistencia.guardarVendedoresXMLAsync(IngresarUsuarioController.obtenerVendedores());
 
         showConfirmation("Vendedor guardado con éxito.");
