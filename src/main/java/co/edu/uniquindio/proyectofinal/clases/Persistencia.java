@@ -86,6 +86,11 @@ public class Persistencia {
                     direccionElement.appendChild(document.createTextNode(vendedor.getDireccion()));
                     element.appendChild(direccionElement);
 
+                    //Contraseña
+                    Element contrasenaElement = document.createElement("contrasena");
+                    contrasenaElement.appendChild(document.createTextNode(vendedor.getContrasena()));
+                    element.appendChild(contrasenaElement);
+
                     //Productos
                     Element productos = document.createElement("productos");
                     for (Producto producto : vendedor.getProductos()) {
@@ -165,8 +170,9 @@ public class Persistencia {
                 String apellido = vendedorElement.getElementsByTagName("apellido").item(0).getTextContent();
                 String cedula = vendedorElement.getElementsByTagName("cedula").item(0).getTextContent();
                 String direccion = vendedorElement.getElementsByTagName("direccion").item(0).getTextContent();
+                String contrasena = vendedorElement.getElementsByTagName("contrasena").item(0).getTextContent();
 
-                Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion);
+                Vendedor vendedor = new Vendedor(nombre, apellido, cedula, direccion, contrasena);
                 vendedores.add(vendedor);
             }
             

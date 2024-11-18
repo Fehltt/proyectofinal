@@ -34,9 +34,12 @@ public class mainin {
 
         // Crear instancia de Marketplace
         Marketplace marketplace = new Marketplace("Mi Marketplace");
+        
+        Muro muro1 = new Muro();
+        Muro muro2 = new Muro();
 
         // Crear vendedores
-        Vendedor vendedor1 = new Vendedor("Juan", "Perez", "123456789", "Calle Falsa 123", "contrasena1");
+        Vendedor vendedor1 = new Vendedor("Juan", "Perez", "123456789", "Calle Falsa 123","contrasena1");
         Vendedor vendedor2 = new Vendedor("Maria", "Gomez", "987654321", "Avenida Siempre Viva 742", "contrasena2");
 
         // Agregar vendedores al Marketplace
@@ -90,7 +93,7 @@ public class mainin {
         tablero.exportarEstadisticas("reporte_estadisticas.txt", "admin");
 
         // Persistencia de datos: guardar productos
-        vendedor1.guardarProductos();
+        vendedor1.guardarProductosTXT();
         vendedor2.guardarProductos();
 
         // Ejecutar el cliente de reporte

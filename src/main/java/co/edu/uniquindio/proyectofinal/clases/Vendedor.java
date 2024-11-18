@@ -13,6 +13,7 @@ public class Vendedor implements Serializable {
    private String apellido; 
    private String cedula;
    private String direccion;
+   private String contrasena;
    private Muro muro;
    private static List<Vendedor> contactos = new ArrayList<>();
    private static List<Producto> productos = new ArrayList<>();
@@ -25,11 +26,12 @@ public class Vendedor implements Serializable {
 
     //Constuctor
 
-    public Vendedor(String nombre, String apellido, String cedula, String direccion) {
+    public Vendedor(String nombre, String apellido, String cedula, String direccion, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
+        this.contrasena = contrasena;
     }
 
     //Getters y Setters

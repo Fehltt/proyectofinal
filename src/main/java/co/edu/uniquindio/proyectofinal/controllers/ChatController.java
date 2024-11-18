@@ -53,7 +53,7 @@ public class ChatController implements MensajeListener {
     public void sendMessage(ActionEvent event) {
         String mensaje = messageTextField.getText();
         if (mensaje != null && !mensaje.trim().isEmpty() && contactoSeleccionado != null) {
-            Mensaje nuevoMensaje = new Mensaje(vendedorActual, mensaje, contactoSeleccionado);
+            Mensaje nuevoMensaje = new Mensaje(vendedorActual, contactoSeleccionado, mensaje);
             manejadorCliente.enviarMensaje(nuevoMensaje); // Enviar al servidor
             messageListView.getItems().add("Yo: " + mensaje); // Mostrar en la interfaz
             messageTextField.clear();
