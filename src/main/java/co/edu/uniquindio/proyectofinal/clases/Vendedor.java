@@ -319,9 +319,9 @@ public void comprarProducto(Producto producto)
             vendedorOriginal.agregarProductoVendido(producto);
 
             // Persistir los cambios utilizando la clase Persistencia
-            Persistencia.guardarObjeto(vendedorOriginal, Persistencia.RUTA_VENDEDORES_DAT);
-            Persistencia.guardarXML(Collections.singletonList(vendedorOriginal), Persistencia.RUTA_VENDEDORES_XML, "vendedores", "vendedor");
-            Persistencia.guardarTXT(Collections.singletonList(vendedorOriginal), "C:\\td\\persistencia\\vendedores.txt");
+            Persistencia.guardarObjetoAsync(vendedorOriginal, Persistencia.RUTA_VENDEDORES_DAT);
+            Persistencia.guardarXMLAsync(Collections.singletonList(vendedorOriginal), Persistencia.RUTA_VENDEDORES_XML, "vendedores", "vendedor");
+            Persistencia.guardarTXTAsync(Collections.singletonList(vendedorOriginal), "C:\\td\\persistencia\\vendedores.txt");
 
         } else {
             // Lanzar excepción si el producto no está disponible
