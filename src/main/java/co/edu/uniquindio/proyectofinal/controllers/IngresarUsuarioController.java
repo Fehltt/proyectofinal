@@ -44,7 +44,7 @@ public class IngresarUsuarioController {
 
     @FXML
     public void initialize() throws IOException {
-        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXML();
+        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXMLAsync();
         vendedores.addAll(vendedoresCargados);
         System.out.println("Vendedores cargados: " + vendedores.size());
     }
