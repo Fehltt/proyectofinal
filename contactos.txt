@@ -1,0 +1,44 @@
+Nombre: Juan
+Apellido: Perez
+Cedula: 123456789
+Direccion: Calle Falsa 123
+Productos: 
+	Nombre del prodcuto: Producto1
+	Codigo del producto: null
+	Descripcion del producto: Descripcion del producto1
+	Precio del producto: 100.0
+	Estado del producto: PUBLICADO
+	Fecha de publicacion: 2024-11-17
+	Hora de publicacion: 10:30
+
+	Nombre del prodcuto: Producto2
+	Codigo del producto: null
+	Descripcion del producto: Descripcion del producto2
+	Precio del producto: 150.0
+	Estado del producto: PUBLICADO
+	Fecha de publicacion: 2024-11-17
+	Hora de publicacion: 11:45
+
+------------------------------
+Nombre: Maria
+Apellido: Gomez
+Cedula: 987654321
+Direccion: Avenida Siempre Viva 742
+Productos: 
+	Nombre del prodcuto: Producto1
+	Codigo del producto: null
+	Descripcion del producto: Descripcion del producto1
+	Precio del producto: 100.0
+	Estado del producto: PUBLICADO
+	Fecha de publicacion: 2024-11-17
+	Hora de publicacion: 10:30
+
+	Nombre del prodcuto: Producto2
+	Codigo del producto: null
+	Descripcion del producto: Descripcion del producto2
+	Precio del producto: 150.0
+	Estado del producto: PUBLICADO
+	Fecha de publicacion: 2024-11-17
+	Hora de publicacion: 11:45
+
+------------------------------

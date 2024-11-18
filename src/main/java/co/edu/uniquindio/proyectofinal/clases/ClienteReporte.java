@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ClienteReporte {
 
     public static void main (String [] args) throws IOException{
-        try (Socket socket = new Socket ("LocalHost", 12345);
+        try (Socket socket = new Socket ("LocalHost", 12348);
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))){
 

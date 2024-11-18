@@ -192,7 +192,7 @@ public class Persistencia {
                 if (object instanceof Vendedor){
                     Vendedor vendedor = (Vendedor) object;
                     writer.write("Nombre: " + vendedor.getNombre() + "\n");
-                    writer.write("Apellido: " + vendedor.getApellido() + "\n");
+                   writer.write("Apellido: " + vendedor.getApellido() + "\n");
                     writer.write("Cedula: " + vendedor.getCedula() + "\n");
                     writer.write("Direccion: " + vendedor.getDireccion() + "\n");
                     writer.write("Productos: \n");

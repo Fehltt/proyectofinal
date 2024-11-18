@@ -18,7 +18,7 @@ public class Utilidades {
     private Utilidades(){
         logger = Logger.getLogger("MarketplaceLogger");
         try {
-            FileHandler fileHandler = new FileHandler("C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Log\\marketplace_log.log", true);
+            FileHandler fileHandler = new FileHandler("C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Logmarketplace_log.log", true);
             fileHandler.setFormatter(new SimpleFormatter());
             logger.addHandler(fileHandler);
             logger.setLevel(Level.ALL); // Capturar todos los niveles

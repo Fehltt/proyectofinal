@@ -15,9 +15,8 @@ public class ManejadorCliente {
     private MensajeListener listener;
     private List<Mensaje> mensajes;
 
-    public ManejadorCliente(Socket socket, Vendedor vendedor) throws IOException {
+    public ManejadorCliente(Socket socket) throws IOException {
         this.socket = socket;
-        this.vendedor = vendedor;
         this.salida = new ObjectOutputStream(socket.getOutputStream());
         this.entrada = new ObjectInputStream(socket.getInputStream());
         this.mensajes = new ArrayList<>();
@@ -26,13 +25,14 @@ public class ManejadorCliente {
     public void setMensajeListener(MensajeListener listener) {
         this.listener = listener;
     }
-    public Vendedor getVendedor(){
+
+    public Vendedor getVendedor() {
         return vendedor;
     }
 
     public void enviarMensaje(Mensaje mensaje) {
         try {
-            salida.writeObject(mensaje); // Supone que estás usando ObjectOutputStream
+            salida.writeObject(mensaje);
             salida.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,16 +40,16 @@ public class ManejadorCliente {
     }
 
     public List<Mensaje> obtenerMensajes(Vendedor contacto) {
-        return mensajes; // Puedes filtrar mensajes aquí si es necesario
+        return mensajes;
     }
 
     public void run() {
         try {
             while (true) {
                 Mensaje mensaje = (Mensaje) entrada.readObject();
-                mensajes.add(mensaje); // Guardar mensaje recibido
+                mensajes.add(mensaje);
                 if (listener != null) {
-                    listener.onMensajeRecibido(mensaje); // Notificar al controlador
+                    listener.onMensajeRecibido(mensaje);
                 }
             }
         } catch (IOException | ClassNotFoundException e) {

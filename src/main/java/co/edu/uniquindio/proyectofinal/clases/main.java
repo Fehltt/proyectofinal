@@ -1,23 +1,16 @@
 package co.edu.uniquindio.proyectofinal.clases;
-
 import java.io.IOException;
-
-
-import java.io.*;
-import java.net.Socket;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
-public class mainin {
+
+public class main {
 
     public static void main(String[] args) throws IOException, VendedorNoEncontradoException {
-        // Iniciar el servidor de reporte en un hilo separado
+        // Iniciar el servidor de reporte en un hilo separado (puerto 12348)
         new Thread(() -> {
             try {
                 ServidorReporte.main(null);
@@ -26,7 +19,7 @@ public class mainin {
             }
         }).start();
 
-        // Iniciar el servidor de chat en un hilo separado
+        // Iniciar el servidor de chat en un hilo separado (puerto 12346)
         new Thread(() -> {
             ServidorChat servidorChat = new ServidorChat(12346);
             servidorChat.iniciar();
@@ -34,12 +27,9 @@ public class mainin {
 
         // Crear instancia de Marketplace
         Marketplace marketplace = new Marketplace("Mi Marketplace");
-        
-        Muro muro1 = new Muro();
-        Muro muro2 = new Muro();
 
         // Crear vendedores
-        Vendedor vendedor1 = new Vendedor("Juan", "Perez", "123456789", "Calle Falsa 123","contrasena1");
+        Vendedor vendedor1 = new Vendedor("Juan", "Perez", "123456789", "Calle Falsa 123", "contrasena1");
         Vendedor vendedor2 = new Vendedor("Maria", "Gomez", "987654321", "Avenida Siempre Viva 742", "contrasena2");
 
         // Agregar vendedores al Marketplace
@@ -49,8 +39,9 @@ public class mainin {
         // Crear productos con fecha de publicación
         LocalDate fechaPublicacion1 = LocalDate.of(2024, 11, 17);
         LocalDate fechaPublicacion2 = LocalDate.of(2024, 11, 17);
-        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, fechaPublicacion1);
-        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO, fechaPublicacion2);
+        LocalTime horaPublicacion = LocalTime.of(2, 0, 0);
+        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, fechaPublicacion1, horaPublicacion);
+        Producto producto2 = new Producto(0, "Producto2", 150.0, "Descripcion del producto2", EstadoProducto.PUBLICADO, fechaPublicacion2, horaPublicacion);
 
         // Agregar productos a los vendedores
         vendedor1.agregarProducto(producto1);
@@ -92,14 +83,28 @@ public class mainin {
         // Exportar estadísticas a archivo
         tablero.exportarEstadisticas("reporte_estadisticas.txt", "admin");
 
-        // Persistencia de datos: guardar productos
-        vendedor1.guardarProductosTXT();
-        vendedor2.guardarProductos();
 
         // Ejecutar el cliente de reporte
         new Thread(() -> {
             try {
                 ClienteReporte.main(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        // Ejecutar los clientes de chat para diferentes vendedores
+        new Thread(() -> {
+            try {
+                ClienteChat.iniciarChat(vendedor1, 12346);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            try {
+                ClienteChat.iniciarChat(vendedor2, 12346);
             } catch (IOException e) {
                 e.printStackTrace();
             }

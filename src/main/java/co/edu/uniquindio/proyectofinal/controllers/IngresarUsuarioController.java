@@ -45,8 +45,9 @@ public class IngresarUsuarioController {
 
     @FXML
     public void initialize() {
-        // Cargar los vendedores desde los archivos de persistencia
-        Persistencia.cargarVendedoresXMLAsync();
+        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXML(); // Obtener la lista de vendedores
+        vendedores.addAll(vendedoresCargados); // Añadir todos los vendedores a la lista estática
+        System.out.println("Vendedores cargados: " + vendedores.size());
     }
     
     @FXML
@@ -84,32 +85,34 @@ public class IngresarUsuarioController {
         Vendedor vendedor = verificarVendedor(nombre, contrasena);
 
         if (vendedor != null) {
-            cargarChat();  // Cargar la ventana de chat si las credenciales son correctas
+            cargarPaginaPrincipal();  // Cargar la ventana de pagiana principal si las credenciales son correctas
             showConfirmation("Ingreso exitoso. Bienvenido, " + vendedor.getNombre());
         } else {
             showError("El nombre o la contraseña son incorrectos. Por favor, regístrese.");
         }
     }
 
-    private void cargarChat() {
+    private void cargarPaginaPrincipal() {
         try {
             Stage stage = (Stage) bGuardar.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/proyectofinal/Chat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/co/edu/uniquindio/proyectofinal/PaginaPrincipal.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            showError("Error al cargar la ventana de chat.");
+            showError("Error al cargar la ventana de la pagina principal.");
         }
     }
 
     private Vendedor verificarVendedor(String nombre, String contrasena) {
+        System.out.println("Buscando vendedor con nombre: " + nombre + " y contraseña: " + contrasena);
         for (Vendedor vendedor : vendedores) {
+            System.out.println("Vendedor en lista: " + vendedor.getNombre() + " y contraseña: " + vendedor.getContrasena());
             if (vendedor.getNombre().equals(nombre) && vendedor.getContrasena().equals(contrasena)) {
                 return vendedor;
             }
         }
-        return null;  // Si no se encuentra el vendedor o la contraseña no coincide
+        return null;
     }
 
     private void showError(String message) {

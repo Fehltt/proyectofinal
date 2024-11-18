@@ -1,5 +1,7 @@
 package co.edu.uniquindio.proyectofinal.clases;
 
+
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,10 +19,10 @@ public class ServidorChat {
 
     public void iniciar() {
         try (ServerSocket servidor = new ServerSocket(puerto)) {
-            System.out.println("Servidor iniciado en el puerto " + puerto);
+            System.out.println("Servidor de chat iniciado en el puerto " + puerto);
             while (true) {
                 Socket socket = servidor.accept();
-                ManejadorCliente manejador = new ManejadorCliente(socket, null);
+                ManejadorCliente manejador = new ManejadorCliente(socket);
                 clientesConectados.add(manejador);
                 new Thread(manejador::run).start();
             }
