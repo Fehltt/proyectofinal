@@ -100,7 +100,7 @@ public class RegistrarUsuarioController {
 
         IngresarUsuarioController.agregarVendedor(nuevoVendedor);
 
-        Persistencia.guardarObjeto(IngresarUsuarioController.obtenerVendedores(), Persistencia.RUTA_VENDEDORES_XML);
+        Persistencia.guardarObjetoAsync(IngresarUsuarioController.obtenerVendedores(), "vendedores.dat");
 
         showConfirmation("Vendedor guardado con éxito.");
 
