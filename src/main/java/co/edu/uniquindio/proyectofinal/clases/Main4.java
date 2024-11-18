@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
+import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
+
 public class Main4 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ProductoCanceladoOVendidoException, AutoCompraException {
         // Iniciar el servidor de reporte en un hilo separado
         new Thread(() -> {
             try {
-                ServidorReporte.main(null);
+                ServidorReporteFinanzas.main(null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -37,6 +40,7 @@ public class Main4 {
         vendedor2.agregarProducto(producto3);
 
         // Vendedor 1 compra uno de los productos del vendedor 2
+        vendedor1.comprarProducto(producto3);
 
         // Esperar a que el servidor esté listo
         try {
@@ -48,7 +52,7 @@ public class Main4 {
         // Ejecutar el cliente de reporte
         new Thread(() -> {
             try {
-                ClienteReporte.main(null);
+                ClienteReporteFinanza.main(null);
             } catch (IOException e) {
                 e.printStackTrace();
             }

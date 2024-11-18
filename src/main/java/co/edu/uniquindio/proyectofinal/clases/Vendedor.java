@@ -3,12 +3,15 @@ package co.edu.uniquindio.proyectofinal.clases;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
+import co.edu.uniquindio.proyectofinal.excepciones.AutoCompraException;
+import co.edu.uniquindio.proyectofinal.excepciones.ProductoCanceladoOVendidoException;
 import co.edu.uniquindio.proyectofinal.excepciones.VendedorNoEncontradoException;
 
 public class Vendedor implements Serializable {
@@ -18,6 +21,7 @@ public class Vendedor implements Serializable {
    private String direccion;
    private String contrasena;
    private Muro muro;
+   private EstadoProducto estadoProducto;
    private static List<Vendedor> contactos = new ArrayList<>();
    private static List<Producto> productos = new ArrayList<>();
    private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
@@ -35,12 +39,17 @@ public class Vendedor implements Serializable {
         this.cedula = cedula;
         this.direccion = direccion;
         this.contrasena = contrasena;
+        this.estadoProducto = estadoProducto;
     }
 
     //Getters y Setters
 
     public String getNombre() {
         return nombre;
+    }
+    
+    public void setEstadoProducto(){
+        estadoProducto = EstadoProducto.PUBLICADO;
     }
 
     public void setNombre(String nombre) {
@@ -132,6 +141,7 @@ public class Vendedor implements Serializable {
     public void agregarProducto(Producto producto) throws IOException {
         // Proceso
         productos.add(producto);
+        producto.setAutor(this);
 
         // Persistencia
         Persistencia.guardarObjetoAsync(productos, "productos.dat");
@@ -229,7 +239,7 @@ public class Vendedor implements Serializable {
     }
 }
 
-public String generarReporte() {
+public String generarReporteFinanciero() {
     StringBuilder reporte = new StringBuilder();
 
     // Agregar información del vendedor
@@ -271,5 +281,57 @@ public String generarReporte() {
     }
 
     return reporte.toString();
+}
+
+public EstadoProducto getEstadoProducto() {
+    return estadoProducto;
+}
+
+public void setEstadoProducto(EstadoProducto estadoProducto) {
+    this.estadoProducto = estadoProducto;
+}
+
+public void eliminarProducto(Producto producto){
+    productos.remove(producto);
+}
+
+
+public void comprarProducto(Producto producto)
+        throws ProductoCanceladoOVendidoException, AutoCompraException, IOException {
+
+    // Obtener el vendedor original del producto
+    Vendedor vendedorOriginal = producto.getAutor();
+
+    // Verificar que el comprador no sea el mismo vendedor del producto
+    if (!vendedorOriginal.equals(this)) {
+
+        // Verificar si el producto está publicado
+        if (producto.getEstadoProducto() == EstadoProducto.PUBLICADO) {
+            // Registrar la operación en los logs
+            Utilidades.getInstance().escribirLog(Level.INFO,
+                "Función comprarProducto en Vendedor: Funcionamiento adecuado");
+
+            // Cambiar el estado del producto a vendido
+            producto.setEstadoProducto(EstadoProducto.VENDIDO);
+
+            // Actualizar la lista de productos del vendedor original
+            vendedorOriginal.eliminarProducto(producto);
+            vendedorOriginal.agregarProductoVendido(producto);
+
+            // Persistir los cambios utilizando la clase Persistencia
+            Persistencia.guardarObjetoAsync(vendedorOriginal, Persistencia.RUTA_VENDEDORES_DAT);
+            Persistencia.guardarXMLAsync(Collections.singletonList(vendedorOriginal), Persistencia.RUTA_VENDEDORES_XML, "vendedores", "vendedor");
+            Persistencia.guardarTXTAsync(Collections.singletonList(vendedorOriginal), "C:\\td\\persistencia\\vendedores.txt");
+
+        } else {
+            // Lanzar excepción si el producto no está disponible
+            throw new ProductoCanceladoOVendidoException(
+                "El producto ya ha sido vendido o ya no está disponible");
+        }
+
+    } else {
+        // Lanzar excepción si el comprador intenta comprar su propio producto
+        throw new AutoCompraException("No se permite autocomprar productos");
+    }
 }
 }

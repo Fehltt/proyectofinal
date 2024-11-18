@@ -36,11 +36,9 @@ public class LoginController {
 
         if (fxmlFile != null) {
             try {
-                // Cargar el archivo FXML correspondiente
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                 Parent root = loader.load();
 
-                // Obtener el escenario actual y cambiar la escena
                 Stage stage = (Stage) button.getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

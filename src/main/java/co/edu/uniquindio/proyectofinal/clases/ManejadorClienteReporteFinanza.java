@@ -12,12 +12,18 @@ public class ManejadorClienteReporteFinanza implements Runnable {
 
     @Override
     public void run() {
-        try (ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+        try (ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
 
-            out.writeObject(generarReporteVendedores());
+            String tipoReporte = (String) in.readObject();
+
+            if ("financiero".equalsIgnoreCase(tipoReporte)) {
+                out.writeObject(generarReporteFinanciero());
+            } else if ("vendedores".equalsIgnoreCase(tipoReporte)) {
+                out.writeObject(generarReporteVendedores());
+            }
             out.flush();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -26,11 +32,19 @@ public class ManejadorClienteReporteFinanza implements Runnable {
         StringBuilder reporte = new StringBuilder();
         reporte.append("-----Reporte de vendedores y productos-----\n");
         for (Vendedor vendedor : ServidorReporteFinanzas.getVendedores()) {
-            reporte.append(vendedor.generarReporte()).append("\n");
+            reporte.append(vendedor.generarReporteFinanciero()).append("\n");
         }
         return reporte.toString();
     }
 
-    
+    private String generarReporteFinanciero() {
+        StringBuilder reporte = new StringBuilder();
+        reporte.append("-----Reporte Financiero de vendedores y productos-----\n");
+        for (Vendedor vendedor : ServidorReporteFinanzas.getVendedores()) {
+            reporte.append(vendedor.generarReporteFinanciero()).append("\n");
+        }
+        return reporte.toString();
+    }
 }
+
 

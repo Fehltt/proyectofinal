@@ -1,8 +1,8 @@
 package co.edu.uniquindio.proyectofinal.controllers;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +33,20 @@ public class MuroController {
 
     @FXML
     public void initialize() throws NumberFormatException, NegativoException {
-        // Cargar productos desde el archivo y ordenarlos
-        List<Producto> productos = cargarProductosDesdeTXT("Persistencia/archivos/productos.txt");
-        
-        // Agregar los productos al ListView
-        listViewProductos.getItems().setAll(productos);
-        listViewProductos.setCellFactory(listView -> new ProductoListCell()); // Asegúrate de que ProductoListCell esté configurado
+        // Crear productos quemados
+        Producto producto1 = new Producto(0, "Producto1", 100.0, "Descripcion del producto1", EstadoProducto.PUBLICADO, LocalDate.now().minusDays(15), LocalTime.now());
+        Producto producto2 = new Producto(1, "Zapatillas de running", 120.0, "Zapatillas ligeras y cómodas para correr", 
+                                        EstadoProducto.VENDIDO, LocalDate.now().minusDays(10), LocalTime.now());
+        Producto producto3 = new Producto(5, "Reloj inteligente", 200.0, "Reloj con monitor de actividad física", 
+                                        EstadoProducto.PUBLICADO, LocalDate.now().minusDays(3), LocalTime.now());
+
+        // Añadirlos a la lista y mostrarlos en la ListView
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto1);
+        productos.add(producto2);
+        productos.add(producto3);
+
+        listViewProductos.getItems().addAll(productos);
     }
 
     @FXML
@@ -66,45 +74,5 @@ public class MuroController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
-
-    public List<Producto> cargarProductosDesdeTXT(String archivo) {
-        List<Producto> productos = new ArrayList<>();
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-
-            while ((linea = br.readLine()) != null) {
-                if (linea.trim().isEmpty()) {
-                    continue;  // Ignorar líneas vacías
-                }
-            
-                String[] datos = linea.split("\\|");
-            
-                if (datos.length == 4) {
-                String nombre = datos[0];
-                double precio = Double.parseDouble(datos[1]);
-                String descripcion = datos[2];
-                String estadoStr = datos[3].trim();
-
-                // Convertir el String del estado a un valor del enum EstadoProducto
-                EstadoProducto estadoProducto = EstadoProducto.valueOf(estadoStr);
-
-                // Crear el objeto Producto con los datos
-                Producto producto = new Producto(0, nombre, precio, descripcion, estadoProducto, null, null);
-                productos.add(producto);
-            }
-        }
-        } catch (IOException e) {
-            showError("Error al leer el archivo: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            showError("Error al convertir el precio: " + e.getMessage());
-        } catch (IllegalArgumentException e) {
-            showError("Estado o categoría no válida: " + e.getMessage());
-        } catch (Exception e) {
-            showError("Error inesperado: " + e.getMessage());
-        }
-
-        return productos;
     }
 }

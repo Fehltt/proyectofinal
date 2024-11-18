@@ -58,7 +58,7 @@ public class RegistrarUsuarioController {
     private TextField tfNombre;
 
     @FXML
-    void click(ActionEvent event) {
+    void click(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
 
         if (button == bAtras) {
@@ -79,7 +79,7 @@ public class RegistrarUsuarioController {
         }
     }
 
-    private void guardarVendedor() {
+    private void guardarVendedor() throws IOException {
         String nombre = tfNombre.getText();
         String apellido = tfApellido.getText();
         String cedula = tfCedula.getText();
@@ -98,15 +98,12 @@ public class RegistrarUsuarioController {
 
         Vendedor nuevoVendedor = new Vendedor(nombre, apellido, cedula, direccion, contrasena);
 
-        // Agregar al "repositorio" de vendedores
-        IngresarUsuarioController.agregarVendedor(nuevoVendedor);  // Llamar al método estático de IngresarUsuarioController
+        IngresarUsuarioController.agregarVendedor(nuevoVendedor);
 
-         // Guardar la lista de vendedores de forma persistente (binario o XML)
-        Persistencia.guardarVendedoresXMLAsync(IngresarUsuarioController.obtenerVendedores());
+        Persistencia.guardarObjeto(IngresarUsuarioController.obtenerVendedores(), Persistencia.RUTA_VENDEDORES_XML);
 
         showConfirmation("Vendedor guardado con éxito.");
 
-        // Limpiar los campos
         limpiarCampos();
     }
 
@@ -133,5 +130,4 @@ public class RegistrarUsuarioController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }
