@@ -55,9 +55,9 @@ public class Main3 {
         System.out.println("Contactos de vendedor2: " + vendedor2.contarContactos());
 
         // Añadir likes a los productos
-        producto1.recibirLike(vendedor2);
-        producto1.recibirLike(vendedor2); // Añadir más likes para probar
-        producto2.recibirLike(vendedor1);
+        producto1.darLike(vendedor2);
+        producto1.darLike(vendedor2); // Añadir más likes para probar
+        producto2.darLike(vendedor1);
 
         // Mostrar productos de un vendedor
         List<Producto> productos = vendedor1.mostrarProductos(vendedor2);

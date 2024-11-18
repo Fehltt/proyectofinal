@@ -20,15 +20,15 @@ import org.w3c.dom.NodeList;
 
 public class Persistencia {
 
-    protected static final String RUTA_VENDEDORES_DAT = "C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\vendedores.dat";
-    protected static final String RUTA_VENDEDORES_XML = "C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\vendedores.xml";
+    protected static final String RUTA_VENDEDORES_DAT = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivosvendedores.dat";
+    protected static final String RUTA_VENDEDORES_XML = "C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivosvendedores.xml";
 
     private static final Object lockBinario = new Object(); 
     private static final Object lockXML = new Object(); 
     private static final Object lockTXT = new Object();
 
     public static void asegurarseDeQueLasRutasExisten() {
-        new File("C:\\Users\\usuario\\Downloads\\proyectofinal-1\\Archivos\\").mkdirs(); // Crea la carpeta de persistencia
+        new File("C:\\Users\\Epubl\\Downloads\\Proyecto Final Programación III\\proyectofinal\\Archivos\\").mkdirs(); // Crea la carpeta de persistencia
     }
 
     // Serialización Binaria

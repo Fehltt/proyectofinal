@@ -364,3 +364,327 @@ nov. 17, 2024 10:44:11 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades e
 INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
 nov. 17, 2024 10:44:11 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
 INFORMACIÓN: Función guardarTXT en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+ADVERTENCIA: Error en función guardarObjetoAsync en Persistencia java.io.FileNotFoundException: C:\Users\usuario\Downloads\proyectofinal-1\Archivos\vendedores.dat (El sistema no puede encontrar la ruta especificada)
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+ADVERTENCIA: Error en función guardarXMLAsync en Persistencia javax.xml.transform.TransformerException: java.io.FileNotFoundException: C:\Users\usuario\Downloads\proyectofinal-1\Archivos\vendedores.xml (El sistema no puede encontrar la ruta especificada)
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:00:35 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:03:09 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:04:25 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:45 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:07:46 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:08:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:15:12 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:27 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:28 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:28 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:28 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:37 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:23:49 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función comprarProducto en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función agregarProductoVendido en Vendedor: Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarTXTAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:06 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarObjetoAsync en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:07 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:07 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:07 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado
+nov. 17, 2024 11:24:07 P. M. co.edu.uniquindio.proyectofinal.clases.Utilidades escribirLog
+INFORMACIÓN: Función guardarXML en Persistencia. Funcionamiento adecuado

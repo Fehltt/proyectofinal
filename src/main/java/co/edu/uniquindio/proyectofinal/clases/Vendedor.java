@@ -23,13 +23,13 @@ public class Vendedor implements Serializable {
    private Muro muro;
    private EstadoProducto estadoProducto;
    private static List<Vendedor> contactos = new ArrayList<>();
-   private static List<Producto> productos = new ArrayList<>();
-   private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
-   private static List<Solicitud> solicitudesRechazadas = new ArrayList<>();
-   private static List <Producto> productosVendidos = new ArrayList<>();
-   private static List <Solicitud> solicitudesAceptadas = new ArrayList<>();
+   private List<Producto> productos = new ArrayList<>();
+   private List<Solicitud> solicitudesPendientes = new ArrayList<>();
+   private List<Solicitud> solicitudesRechazadas = new ArrayList<>();
+   private List <Producto> productosVendidos = new ArrayList<>();
+   private List <Solicitud> solicitudesAceptadas = new ArrayList<>();
    private ManejadorCliente manejadorCliente;
-   private static List <Producto> productosTotales = new ArrayList<>();
+   private List <Producto> productosTotales = new ArrayList<>();
 
     //Constuctor
 
@@ -142,6 +142,7 @@ public class Vendedor implements Serializable {
         // Proceso
         productos.add(producto);
         producto.setAutor(this);
+        productosTotales.add(producto);
 
         // Persistencia
         Persistencia.guardarObjetoAsync(productos, "productos.dat");
@@ -249,10 +250,10 @@ public String generarReporteFinanciero() {
            .append("\n");
 
     // Agregar productos publicados
-    if (!productos.isEmpty()) {
+    if (!productosTotales.isEmpty()) {
         reporte.append("Productos publicados:\n");
         int index = 1;
-        for (Producto producto : productos) {
+        for (Producto producto : productosTotales) {
             reporte.append(index++)
                    .append("- ")
                    .append(producto.getNombre())
