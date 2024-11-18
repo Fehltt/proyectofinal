@@ -12,7 +12,7 @@ import java.util.logging.SimpleFormatter;
 
 public class Utilidades {
 
-    private static Utilidades instance;
+    private static Utilidades instance; 
     private Logger logger;
 
     private Utilidades(){
