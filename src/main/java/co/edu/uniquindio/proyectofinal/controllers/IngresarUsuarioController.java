@@ -40,13 +40,12 @@ public class IngresarUsuarioController {
     @FXML
     private TextField tfNombre;
 
-    // Lista estática para almacenar los vendedores registrados
     private static List<Vendedor> vendedores = new ArrayList<>();
 
     @FXML
     public void initialize() throws IOException {
-        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXMLAsync(); // Obtener la lista de vendedores
-        vendedores.addAll(vendedoresCargados); // Añadir todos los vendedores a la lista estática
+        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXML();
+        vendedores.addAll(vendedoresCargados);
         System.out.println("Vendedores cargados: " + vendedores.size());
     }
     
@@ -81,11 +80,10 @@ public class IngresarUsuarioController {
             return;
         }
 
-        // Buscar si el vendedor está registrado
         Vendedor vendedor = verificarVendedor(nombre, contrasena);
 
         if (vendedor != null) {
-            cargarPaginaPrincipal();  // Cargar la ventana de pagiana principal si las credenciales son correctas
+            cargarPaginaPrincipal();
             showConfirmation("Ingreso exitoso. Bienvenido, " + vendedor.getNombre());
         } else {
             showError("El nombre o la contraseña son incorrectos. Por favor, regístrese.");
@@ -139,7 +137,6 @@ public class IngresarUsuarioController {
         IngresarUsuarioController.vendedores = vendedores;
     }
 
-    // Método para agregar vendedores (lo usaremos en el registro)
     public static void agregarVendedor(Vendedor vendedor) {
         vendedores.add(vendedor);
     }
