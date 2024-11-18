@@ -45,7 +45,7 @@ public class ClienteChat {
 
         while (true) {
             String contenido = scanner.nextLine();
-            Mensaje mensaje = new Mensaje(vendedor, contenido, vendedor);  // Aquí deberías establecer el destinatario correcto
+            Mensaje mensaje = new Mensaje(vendedor, vendedor, contenido);  // Aquí deberías establecer el destinatario correcto
             clienteChat.enviarMensaje(mensaje);
         }
     }
