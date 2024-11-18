@@ -44,8 +44,8 @@ public class IngresarUsuarioController {
     private static List<Vendedor> vendedores = new ArrayList<>();
 
     @FXML
-    public void initialize() {
-        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXML(); // Obtener la lista de vendedores
+    public void initialize() throws IOException {
+        List<Vendedor> vendedoresCargados = Persistencia.cargarVendedoresXMLAsync(); // Obtener la lista de vendedores
         vendedores.addAll(vendedoresCargados); // Añadir todos los vendedores a la lista estática
         System.out.println("Vendedores cargados: " + vendedores.size());
     }

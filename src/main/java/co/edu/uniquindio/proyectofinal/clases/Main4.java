@@ -37,7 +37,6 @@ public class Main4 {
         vendedor2.agregarProducto(producto3);
 
         // Vendedor 1 compra uno de los productos del vendedor 2
-        vendedor2.(producto3, vendedor1);
 
         // Esperar a que el servidor esté listo
         try {

@@ -91,7 +91,7 @@ public class MuroController {
                 EstadoProducto estadoProducto = EstadoProducto.valueOf(estadoStr);
 
                 // Crear el objeto Producto con los datos
-                Producto producto = new Producto(nombre, precio, descripcion, estadoProducto);
+                Producto producto = new Producto(0, nombre, precio, descripcion, estadoProducto, null, null);
                 productos.add(producto);
             }
         }

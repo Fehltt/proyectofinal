@@ -32,12 +32,14 @@ public class Marketplace {
 
     public void agregarVendedor(Vendedor vendedor) throws IOException{
         vendedores.add(vendedor);
-        Persistencia.guardarObjeto(vendedores, Persistencia.RUTA_VENDEDORES_DAT);
+        Persistencia.guardarObjetoAsync(vendedores, "vendedores.dat");
+        Persistencia.guardarXMLAsync(vendedores, "vendedores.xml", "vendedores", "vendedor");
+        Persistencia.guardarTXTAsync(vendedores, "vendedores.txt");
     }
 
     public void eliminarVendedor(Vendedor vendedor) throws IOException{
         vendedores.remove(vendedor);
-        Persistencia.guardarObjeto(vendedores, Persistencia.RUTA_VENDEDORES_DAT);
+        Persistencia.guardarObjetoAsync(vendedores, Persistencia.RUTA_VENDEDORES_DAT);
     }
 
 }

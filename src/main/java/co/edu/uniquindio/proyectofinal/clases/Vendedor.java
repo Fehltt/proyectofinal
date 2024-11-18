@@ -18,7 +18,6 @@ public class Vendedor implements Serializable {
    private String direccion;
    private String contrasena;
    private Muro muro;
-   private String contrasena;
    private static List<Vendedor> contactos = new ArrayList<>();
    private static List<Producto> productos = new ArrayList<>();
    private static List<Solicitud> solicitudesPendientes = new ArrayList<>();
@@ -111,9 +110,8 @@ public class Vendedor implements Serializable {
             solicitudesPendientes.remove(solicitud);
 
             //Persistencia
-            Persistencia.guardarObjeto(contactos, "contactos.dat");
-            Persistencia.guardarXML(contactos, "contactos.xml", "contactos", "contacto");
-            Persistencia.guardarTXT(contactos, "contactos.txt");
+            Persistencia.guardarXMLAsync(contactos, "contactos.xml", "contactos", "contacto");
+            Persistencia.guardarTXTAsync(contactos, "contactos.txt");
 
             Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarContacto en Vendedor: Funcionamiento adecuado");
         }
@@ -136,9 +134,9 @@ public class Vendedor implements Serializable {
         productos.add(producto);
 
         // Persistencia
-        Persistencia.guardarObjeto(productos, "productos.dat");
-        Persistencia.guardarXML(productos, "productos.xml", "productos", "producto");
-        Persistencia.guardarTXT(productos, "productos.txt");
+        Persistencia.guardarObjetoAsync(productos, "productos.dat");
+        Persistencia.guardarXMLAsync(productos, "productos.xml", "productos", "producto");
+        Persistencia.guardarTXTAsync(productos, "productos.txt");
 
         Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarProducto en Vendedor: Funcionamiento adecuado");
     }
@@ -183,9 +181,9 @@ public class Vendedor implements Serializable {
         solicitudesPendientes.add(solicitud);
 
         //Persistencia
-        Persistencia.guardarObjeto(solicitudesPendientes, "solicitudesPendientes.dat");
-        Persistencia.guardarXML(solicitudesPendientes, "solicitudesPendientes.xml", "solicitudes", "solicitud");
-        Persistencia.guardarTXT(solicitudesPendientes, "solicitudesPendientes.txt");
+        Persistencia.guardarObjetoAsync(solicitudesPendientes, "solicitudesPendientes.dat");
+        Persistencia.guardarXMLAsync(solicitudesPendientes, "solicitudesPendientes.xml", "solicitudes", "solicitud");
+        Persistencia.guardarTXTAsync(solicitudesPendientes, "solicitudesPendientes.txt");
 
         Utilidades.getInstance().escribirLog(Level.INFO,"Función recibirSolicitud en Vendedor: Funcionamiento adecuado");
     }
@@ -197,12 +195,12 @@ public class Vendedor implements Serializable {
             solicitudesRechazadas.add(solicitud);
 
             //Persistencia
-            Persistencia.guardarObjeto(solicitudesPendientes, "solicitudesPendientes.dat");
-            Persistencia.guardarObjeto(solicitudesRechazadas, "solicitudesRechazadas.dat");
-            Persistencia.guardarXML(solicitudesPendientes, "solicitudesPendientes.xml", "solicitudes", "solicitud");
-            Persistencia.guardarXML(solicitudesRechazadas, "solicitudesRechazadas.xml", "solicitudes", "solicitud");
-            Persistencia.guardarTXT(solicitudesPendientes, "solicitudesPendientes.txt");
-            Persistencia.guardarTXT(solicitudesRechazadas, "solicitudesRechazadas.txt");
+            Persistencia.guardarObjetoAsync(solicitudesPendientes, "solicitudesPendientes.dat");
+            Persistencia.guardarObjetoAsync(solicitudesRechazadas, "solicitudesRechazadas.dat");
+            Persistencia.guardarXMLAsync(solicitudesPendientes, "solicitudesPendientes.xml", "solicitudes", "solicitud");
+            Persistencia.guardarXMLAsync(solicitudesRechazadas, "solicitudesRechazadas.xml", "solicitudes", "solicitud");
+            Persistencia.guardarTXTAsync(solicitudesPendientes, "solicitudesPendientes.txt");
+            Persistencia.guardarTXTAsync(solicitudesRechazadas, "solicitudesRechazadas.txt");
 
             Utilidades.getInstance().escribirLog(Level.INFO,"Función rechazarSolicitud en Vendedor: Funcionamiento adecuado");
         }
