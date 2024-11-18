@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+
+import javax.swing.JOptionPane;
 
 import co.edu.uniquindio.proyectofinal.excepciones.NegativoException;
 
@@ -93,22 +96,6 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public void recibirLike (Vendedor usuario){ 
-        likes.add(usuario);
-        
-    }
-    public void perderLike (Vendedor usuario){
-        likes.remove(usuario);
-    }
-
-    public void agregarComentario (Comentario comentario){
-        comentarios.add(comentario);
-    }
-
-    public void eliminarComtenario (Comentario comentario){
-        comentarios.remove(comentario);
-    }
-
     public EstadoProducto getEstadoProducto() {
         return estadoProducto;
     }
@@ -121,11 +108,33 @@ public class Producto implements Serializable {
         return autor;
     }
 
+    public void darLike(Vendedor vendedor) {
+        likes.add(vendedor);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función darLike en Producto. Funcionamiento adecuado");
+    }
+
+    public void quitarLike(Vendedor vendedor) {
+        likes.remove(vendedor);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función quitarLike en Producto. Funcionamiento adecuado");
+    }
+    
+    public void agregarComentario (Comentario comentario){
+        comentarios.add(comentario);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarComentario en Producto. Funcionamiento adecuado");
+    }
+
+    public void eliminarComentario (Comentario comentario){
+        comentarios.remove(comentario);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarComentario en Producto. Funcionamiento adecuado");
+    }
+
     public List<Comentario> obtenerComentarios(Vendedor usuario){
         if(autor.getContactos().contains(usuario)){
+            Utilidades.getInstance().escribirLog(Level.INFO, "Función obtenerComentarios en Producto. Funcionamiento adecuado");
             return comentarios;
         } else{
-            System.out.println("No está en la lista de contactos");
+            JOptionPane.showMessageDialog(null, "No se pudo obtener los comentarios");
+            Utilidades.getInstance().escribirLog(Level.INFO, "Error en obtenerComentarios en Producto. No se pudo obtener los comentarios");
             return null;
         }
     }

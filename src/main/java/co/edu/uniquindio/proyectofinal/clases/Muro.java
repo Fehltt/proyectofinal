@@ -26,35 +26,14 @@ public class Muro implements Serializable{
         Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarMensaje en Muro. Funcionamiento adecuado");
     }
 
-    public void agregarComentario(Mensaje mensaje, Comentario comentario) {
-        int index = mensajes.indexOf(mensaje);
-        if (index != -1) {
-            mensajes.get(index).agregarComentario(comentario);
-            Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarComentario en Muro. Funcionamiento adecuado");
-        } 
+    public void agregarComentarioEnMuro(Producto producto, Comentario comentario) {
+        producto.agregarComentario(comentario);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función agregarComentarioenMuro en Muro. Funcionamiento adecuado");
     }
 
-    public void eliminarComentario(Mensaje mensaje, Comentario comentario) { 
-        int index = mensajes.indexOf(mensaje); 
-        if (index != -1) { 
-            mensajes.get(index).eliminarComentario(comentario); 
-            Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarComentario en Muro. Funcionamiento adecuado");
-        } 
+    public void eliminarComentarioEnMuro(Producto producto,Comentario comentario) { 
+        producto.eliminarComentario(comentario);
+        Utilidades.getInstance().escribirLog(Level.INFO, "Función eliminarComentarioEnMuro en Muro. Funcionamiento adecuado");
     }
 
-    public void darMeGusta(Mensaje mensaje, Vendedor vendedor) { 
-        int index = mensajes.indexOf(mensaje); 
-        if (index != -1) { 
-            mensajes.get(index).darMeGusta(vendedor);
-            Utilidades.getInstance().escribirLog(Level.INFO, "Función darMeGusta en Muro. Funcionamiento adecuado");
-        } 
-    } 
-    
-    public void quitarMeGusta(Mensaje mensaje, Vendedor vendedor) { 
-        int index = mensajes.indexOf(mensaje); 
-        if (index != -1) { 
-            mensajes.get(index).quitarMeGusta(vendedor);
-            Utilidades.getInstance().escribirLog(Level.INFO, "Función quitarMeGusta en Muro. Funcionamiento adecuado");
-        } 
-    }
 }
