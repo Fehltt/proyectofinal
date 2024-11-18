@@ -9,7 +9,7 @@ Productos:
 	Precio del producto: 100.0
 	Estado del producto: PUBLICADO
 	Fecha de publicacion: 2024-11-17
-	Hora de publicacion: 02:00
+	Hora de publicacion: 10:30
 
 	Nombre del prodcuto: Producto2
 	Codigo del producto: null
@@ -17,7 +17,7 @@ Productos:
 	Precio del producto: 150.0
 	Estado del producto: PUBLICADO
 	Fecha de publicacion: 2024-11-17
-	Hora de publicacion: 02:00
+	Hora de publicacion: 11:45
 
 ------------------------------
 Nombre: Maria
@@ -31,7 +31,7 @@ Productos:
 	Precio del producto: 100.0
 	Estado del producto: PUBLICADO
 	Fecha de publicacion: 2024-11-17
-	Hora de publicacion: 02:00
+	Hora de publicacion: 10:30
 
 	Nombre del prodcuto: Producto2
 	Codigo del producto: null
@@ -39,6 +39,6 @@ Productos:
 	Precio del producto: 150.0
 	Estado del producto: PUBLICADO
 	Fecha de publicacion: 2024-11-17
-	Hora de publicacion: 02:00
+	Hora de publicacion: 11:45
 
 ------------------------------

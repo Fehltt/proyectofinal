@@ -212,20 +212,65 @@ public class Vendedor implements Serializable {
         Utilidades.getInstance().escribirLog(Level.INFO,"Función agregarProductoVendido en Vendedor: Funcionamiento adecuado");
     }
 
-    public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException{
-        if (contactos.contains(solicitante)){
-            List<Producto> productosOrdenados = new ArrayList<Producto>();
-            for (Vendedor contacto : contactos) {
+   public List<Producto> mostrarProductos(Vendedor solicitante) throws VendedorNoEncontradoException {
+    if (contactos.contains(solicitante)) {
+        List<Producto> productosOrdenados = new ArrayList<>();
+
+        for (Vendedor contacto : contactos) {
             productosOrdenados.addAll(contacto.getProductos());
         }
-        productosOrdenados.sort(Comparator.comparing(Producto::getFechaDePublicacion).reversed());
-        
-        return productosOrdenados;
-    }else{
-        System.out.println("El vendedor no hace parte de su lista");
-        return null;
-    }
-    
 
+        productosOrdenados.sort(
+            Comparator.comparing(Producto::getFechaDePublicacion).reversed()
+        );
+
+        return productosOrdenados;
+    } else {
+        throw new VendedorNoEncontradoException("El vendedor no hace parte de su lista de contactos.");
     }
+}
+
+public String generarReporte() {
+    StringBuilder reporte = new StringBuilder();
+
+    // Agregar información del vendedor
+    reporte.append(nombre)
+           .append(" - ")
+           .append(cedula)
+           .append("\n");
+
+    // Agregar productos publicados
+    if (!productos.isEmpty()) {
+        reporte.append("Productos publicados:\n");
+        int index = 1;
+        for (Producto producto : productos) {
+            reporte.append(index++)
+                   .append("- ")
+                   .append(producto.getNombre())
+                   .append(", ")
+                   .append(producto.getPrecio())
+                   .append("\n");
+        }
+    } else {
+        reporte.append("-sin productos-\n");
+    }
+
+    // Agregar productos vendidos
+    if (!productosVendidos.isEmpty()) {
+        reporte.append("Productos vendidos:\n");
+        int index = 1;
+        for (Producto producto : productosVendidos) {
+            reporte.append(index++)
+                   .append("- ")
+                   .append(producto.getNombre())
+                   .append(", ")
+                   .append(producto.getPrecio())
+                   .append("\n");
+        }
+    } else {
+        reporte.append("-sin productos vendidos-\n");
+    }
+
+    return reporte.toString();
+}
 }
